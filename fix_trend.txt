@@ -1,0 +1,26 @@
+    // Player progress
+    const playerProgress = (players || [])
+      .map((p) => {
+        const playerGames = (gameResults || []).filter((g) => g.player_id === p.id);
+        const recentGames = playerGames.slice(-5);
+        let trend: 'up' | 'down' | 'stable' = 'stable';
+        if (recentGames.length >= 2) {
+          const lastScore = recentGames[recentGames.length - 1].score || 0;
+          const firstScore = recentGames[0].score || 0;
+          if (lastScore > firstScore) {
+            trend = 'up';
+          } else if (lastScore < firstScore) {
+            trend = 'down';
+          }
+        }
+
+        return {
+          name: p.name,
+          gamesPlayed: p.games_played || 0,
+          totalScore: p.total_score || 0,
+          bestScore: p.best_score || 0,
+          averageScore: p.games_played ? (p.total_score || 0) / p.games_played : 0,
+          trend,
+        };
+      })
+      .sort((a, b) => b.gamesPlayed - a.gamesPlayed);

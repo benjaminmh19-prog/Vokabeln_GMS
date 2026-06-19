@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: vokabel-champion
+    env: node
+    plan: free
+    buildCommand: pnpm install && pnpm build
+    startCommand: pnpm start
+    autoDeploy: true
+    
+    healthCheckPath: /
+    healthCheckInterval: 10
+    
+    envVars:
+      - key: NODE_ENV
+        value: production
+      
+      - key: VITE_APP_ID
+        value: vokabel-champion-prod
+      
+      # Auto-generate Secrets (Sicherheit)
+      - key: JWT_SECRET
+        generateValue: true
+      
+      # OAUTH Einstellungen
+      - key: OAUTH_SERVER_URL
+        value: https://auth.manus.im
+      
+      - key: OWNER_OPEN_ID
+        value: admin
+
+# WICHTIG: Folgende Variablen müssen manuell im Render Dashboard gesetzt werden:
+# 
+# 1. DATABASE_URL (von Supabase)
+#    postgresql://postgres.YOUR_PROJECT_ID:PASSWORD@aws-1-eu-central-1.pooler.supabase.com:6543/postgres
+#
+# Gehe zu: Render Dashboard → Settings → Environment Variables
+#
+# Keine Database mehr! Verwende Supabase PostgreSQL stattdessen.
+# Siehe SETUP_GUIDE.md für Anleitung.

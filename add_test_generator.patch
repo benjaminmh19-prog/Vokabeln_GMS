@@ -1,0 +1,25 @@
+--- a/client/src/pages/AdminPage.tsx
++++ b/client/src/pages/AdminPage.tsx
+@@ -299,7 +299,7 @@ export default function AdminPage() {
+ 
+         {/* Management Buttons */}
+-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
++        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+           <Button
+             onClick={() => setShowVocabulary(!showVocabulary)}
+             className="bg-[#2E3192] hover:bg-[#1a1a5f] text-white font-bold border-2 border-[#FFD93D] rounded-lg px-8 py-3 transform hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
+@@ -316,6 +316,16 @@ export default function AdminPage() {
+             {showPlayers ? 'SPIELER AUSBLENDEN' : 'SPIELER VERWALTEN'}
+           </Button>
+ 
++          <Button
++            onClick={() => setShowTestGenerator(!showTestGenerator)}
++            className="bg-[#2E3192] hover:bg-[#1a1a5f] text-white font-bold border-2 border-[#FFD93D] rounded-lg px-8 py-3 transform hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
++          >
++            <Download className="w-5 h-5" />
++            {showTestGenerator ? 'TEST AUSBLENDEN' : 'TEST GENERATOR'}
++          </Button>
++
+           <Button
+             onClick={() => setShowHelp(!showHelp)}
+             className="bg-[#2E3192] hover:bg-[#1a1a5f] text-white font-bold border-2 border-[#FFD93D] rounded-lg px-8 py-3 transform hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"

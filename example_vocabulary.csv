@@ -1,0 +1,19 @@
+Unit,Page,English,Deutsch
+Unit 1,1,hello,Hallo
+Unit 1,1,goodbye,Auf Wiedersehen
+Unit 1,1,thank you,Danke
+Unit 1,2,please,Bitte
+Unit 1,2,yes,Ja
+Unit 1,2,no,Nein
+Unit 2,1,apple,Apfel
+Unit 2,1,banana,Banane
+Unit 2,1,orange,Orange
+Unit 2,2,water,Wasser
+Unit 2,2,bread,Brot
+Unit 2,2,cheese,Käse
+Unit 3,1,cat,Katze
+Unit 3,1,dog,Hund
+Unit 3,1,bird,Vogel
+Unit 3,2,fish,Fisch
+Unit 3,2,elephant,Elefant
+Unit 3,2,lion,Löwe

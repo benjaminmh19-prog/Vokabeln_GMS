@@ -1,0 +1,3722 @@
+{
+  "Unit 1": {
+    "12": [
+      {
+        "english": "school",
+        "deutsch": "die Schule"
+      },
+      {
+        "english": "life, lives",
+        "deutsch": "das Leben, die Leben"
+      },
+      {
+        "english": "to go",
+        "deutsch": "gehen; fahren"
+      },
+      {
+        "english": "to",
+        "deutsch": "in; zu; nach; bis"
+      },
+      {
+        "english": "in",
+        "deutsch": "in; auf"
+      },
+      {
+        "english": "year",
+        "deutsch": "die Klasse; die Jahrgangsstufe; das Jahr"
+      },
+      {
+        "english": "uniform",
+        "deutsch": "die Uniform"
+      },
+      {
+        "english": "it's (= it is)",
+        "deutsch": "er/sie/es ist"
+      },
+      {
+        "english": "OK",
+        "deutsch": "okay"
+      }
+    ],
+    "13": [
+      {
+        "english": "tutor",
+        "deutsch": "der Klassenlehrer / die Klassenlehrerin"
+      },
+      {
+        "english": "Mr",
+        "deutsch": "Herr (Anrede)"
+      },
+      {
+        "english": "he's (= he is)",
+        "deutsch": "er ist"
+      },
+      {
+        "english": "a",
+        "deutsch": "ein / eine"
+      },
+      {
+        "english": "science",
+        "deutsch": "Wissenschaft; Naturwissenschaft"
+      },
+      {
+        "english": "teacher",
+        "deutsch": "der Lehrer / die Lehrerin"
+      },
+      {
+        "english": "English",
+        "deutsch": "Englisch; englisch; aus England"
+      },
+      {
+        "english": "Mrs",
+        "deutsch": "Frau (Anrede)"
+      },
+      {
+        "english": "she's (= she is)",
+        "deutsch": "sie ist"
+      },
+      {
+        "english": "caretaker",
+        "deutsch": "der Hausmeister / die Hausmeisterin"
+      },
+      {
+        "english": "always",
+        "deutsch": "immer"
+      },
+      {
+        "english": "busy",
+        "deutsch": "beschäftigt; belebt; arbeitsreich"
+      },
+      {
+        "english": "friend",
+        "deutsch": "der Freund / die Freundin"
+      },
+      {
+        "english": "new",
+        "deutsch": "neu"
+      },
+      {
+        "english": "class",
+        "deutsch": "die Klasse; der Unterricht; der Kurs; die Unterrichtsstunde"
+      },
+      {
+        "english": "cool",
+        "deutsch": "cool; super; kühl"
+      },
+      {
+        "english": "music",
+        "deutsch": "Musik"
+      }
+    ],
+    "14": [
+      {
+        "english": "at",
+        "deutsch": "in; an; um; bei; auf"
+      },
+      {
+        "english": "Good morning.",
+        "deutsch": "Guten Morgen."
+      },
+      {
+        "english": "boy",
+        "deutsch": "der Junge"
+      },
+      {
+        "english": "girl",
+        "deutsch": "das Mädchen"
+      },
+      {
+        "english": "to look at",
+        "deutsch": "anschauen"
+      },
+      {
+        "english": "board",
+        "deutsch": "die Tafel"
+      },
+      {
+        "english": "Can you help me?",
+        "deutsch": "Können Sie mir helfen?; Kannst du mir helfen?"
+      },
+      {
+        "english": "yes",
+        "deutsch": "ja"
+      },
+      {
+        "english": "of course",
+        "deutsch": "natürlich; selbstverständlich"
+      },
+      {
+        "english": "to sit down",
+        "deutsch": "sich hinsetzen; sich setzen"
+      },
+      {
+        "english": "to be",
+        "deutsch": "sein"
+      },
+      {
+        "english": "quiet",
+        "deutsch": "ruhig; leise; still"
+      },
+      {
+        "english": "to listen (to)",
+        "deutsch": "zuhören; anhören; hören"
+      },
+      {
+        "english": "Don't talk.",
+        "deutsch": "Sei(d) still.; Rede(t) nicht."
+      },
+      {
+        "english": "Sorry.",
+        "deutsch": "Tut mir leid.; Entschuldigung."
+      },
+      {
+        "english": "here",
+        "deutsch": "hier"
+      },
+      {
+        "english": "book",
+        "deutsch": "das Buch; das Heft"
+      },
+      {
+        "english": "Excuse me!",
+        "deutsch": "Entschuldigung!"
+      },
+      {
+        "english": "to have",
+        "deutsch": "haben"
+      },
+      {
+        "english": "an",
+        "deutsch": "ein / eine"
+      },
+      {
+        "english": "pen",
+        "deutsch": "der Füller; der Stift"
+      },
+      {
+        "english": "Here you are.",
+        "deutsch": "Bitte schön."
+      }
+    ],
+    "15": [
+      {
+        "english": "bag",
+        "deutsch": "die Tasche; die Tüte"
+      },
+      {
+        "english": "folder",
+        "deutsch": "der Ordner; die Mappe"
+      },
+      {
+        "english": "exercise book",
+        "deutsch": "das Übungsheft"
+      },
+      {
+        "english": "phone",
+        "deutsch": "das Handy; das Telefon"
+      },
+      {
+        "english": "tablet",
+        "deutsch": "das Tablet"
+      },
+      {
+        "english": "pencil",
+        "deutsch": "der Bleistift; der Buntstift"
+      },
+      {
+        "english": "pair of scissors",
+        "deutsch": "die Schere"
+      },
+      {
+        "english": "sharpener",
+        "deutsch": "der Spitzer"
+      },
+      {
+        "english": "rubber",
+        "deutsch": "der Radiergummi"
+      },
+      {
+        "english": "ruler",
+        "deutsch": "das Lineal"
+      },
+      {
+        "english": "pencil case",
+        "deutsch": "das Federmäppchen"
+      },
+      {
+        "english": "there are",
+        "deutsch": "da sind; es gibt"
+      },
+      {
+        "english": "for",
+        "deutsch": "für"
+      }
+    ],
+    "16": [
+      {
+        "english": "no",
+        "deutsch": "nein; kein / keine"
+      },
+      {
+        "english": "to close",
+        "deutsch": "schließen; zumachen"
+      },
+      {
+        "english": "to open",
+        "deutsch": "öffnen; aufmachen"
+      },
+      {
+        "english": "again",
+        "deutsch": "noch einmal; wieder"
+      },
+      {
+        "english": "to write",
+        "deutsch": "schreiben"
+      },
+      {
+        "english": "on",
+        "deutsch": "an; auf"
+      },
+      {
+        "english": "to take out",
+        "deutsch": "herausnehmen; herausbringen"
+      }
+    ],
+    "19": [
+      {
+        "english": "rule",
+        "deutsch": "die Regel"
+      },
+      {
+        "english": "classroom",
+        "deutsch": "das Klassenzimmer"
+      },
+      {
+        "english": "playground",
+        "deutsch": "der Schulhof; der Pausenhof; der Spielplatz"
+      },
+      {
+        "english": "cafeteria",
+        "deutsch": "die Cafeteria; die Mensa"
+      },
+      {
+        "english": "toilet",
+        "deutsch": "die Toilette"
+      },
+      {
+        "english": "library",
+        "deutsch": "die Bibliothek; die Bücherei"
+      },
+      {
+        "english": "gym",
+        "deutsch": "die Turnhalle; das Fitnessstudio"
+      },
+      {
+        "english": "office",
+        "deutsch": "das Büro"
+      }
+    ],
+    "20": [
+      {
+        "english": "day",
+        "deutsch": "der Tag"
+      },
+      {
+        "english": "to like",
+        "deutsch": "mögen"
+      },
+      {
+        "english": "lesson",
+        "deutsch": "die Schulstunde; der Unterricht"
+      },
+      {
+        "english": "to be fun",
+        "deutsch": "Spaß machen; witzig sein"
+      },
+      {
+        "english": "subject",
+        "deutsch": "das Schulfach"
+      },
+      {
+        "english": "because",
+        "deutsch": "weil; da"
+      },
+      {
+        "english": "interesting",
+        "deutsch": "interessant"
+      },
+      {
+        "english": "maths",
+        "deutsch": "Mathematik; Mathe"
+      },
+      {
+        "english": "art",
+        "deutsch": "Kunst"
+      },
+      {
+        "english": "but",
+        "deutsch": "aber"
+      },
+      {
+        "english": "difficult",
+        "deutsch": "schwierig"
+      },
+      {
+        "english": "Tuesday",
+        "deutsch": "Dienstag"
+      },
+      {
+        "english": "Thursday",
+        "deutsch": "Donnerstag"
+      },
+      {
+        "english": "they're (= they are)",
+        "deutsch": "sie sind"
+      },
+      {
+        "english": "to be good at",
+        "deutsch": "gut sein in"
+      },
+      {
+        "english": "Friday",
+        "deutsch": "Freitag"
+      },
+      {
+        "english": "I don't like",
+        "deutsch": "Ich mag nicht; gefällt mir nicht."
+      },
+      {
+        "english": "Wednesday",
+        "deutsch": "Mittwoch"
+      },
+      {
+        "english": "PE (= Physical Education)",
+        "deutsch": "Sportunterricht"
+      },
+      {
+        "english": "boring",
+        "deutsch": "langweilig"
+      },
+      {
+        "english": "easy",
+        "deutsch": "einfach; leicht"
+      },
+      {
+        "english": "with",
+        "deutsch": "mit"
+      },
+      {
+        "english": "homework",
+        "deutsch": "die Hausaufgabe, die Hausaufgaben"
+      },
+      {
+        "english": "sure",
+        "deutsch": "sicher"
+      },
+      {
+        "english": "number",
+        "deutsch": "die Zahl; die Nummer; die Anzahl"
+      },
+      {
+        "english": "experiment",
+        "deutsch": "der Versuch; das Experiment"
+      },
+      {
+        "english": "sport",
+        "deutsch": "der Sport; die Sportart"
+      },
+      {
+        "english": "isn't (= is not)",
+        "deutsch": "ist nicht"
+      }
+    ],
+    "21": [
+      {
+        "english": "Saturday",
+        "deutsch": "Samstag"
+      },
+      {
+        "english": "Sunday",
+        "deutsch": "Sonntag"
+      },
+      {
+        "english": "Monday",
+        "deutsch": "Montag"
+      },
+      {
+        "english": "biology",
+        "deutsch": "Biologie"
+      },
+      {
+        "english": "geography",
+        "deutsch": "Erdkunde; Geografie"
+      },
+      {
+        "english": "German",
+        "deutsch": "Deutsch"
+      },
+      {
+        "english": "history",
+        "deutsch": "Geschichte"
+      },
+      {
+        "english": "IT (= Information Technology)",
+        "deutsch": "Informatik; Computerunterricht"
+      },
+      {
+        "english": "technology",
+        "deutsch": "Technik"
+      },
+      {
+        "english": "drama",
+        "deutsch": "Theater; Drama"
+      },
+      {
+        "english": "tutor time",
+        "deutsch": "die Klassenstunde"
+      },
+      {
+        "english": "RE (= Religious Education)",
+        "deutsch": "Religionsunterricht"
+      }
+    ],
+    "22": [
+      {
+        "english": "we",
+        "deutsch": "wir"
+      },
+      {
+        "english": "cat",
+        "deutsch": "die Katze"
+      }
+    ],
+    "23": [
+      {
+        "english": "big",
+        "deutsch": "groß"
+      }
+    ],
+    "25": [
+      {
+        "english": "tour",
+        "deutsch": "der Rundgang; die Tour"
+      },
+      {
+        "english": "to have",
+        "deutsch": "essen"
+      },
+      {
+        "english": "lunch",
+        "deutsch": "das Mittagessen"
+      },
+      {
+        "english": "to make",
+        "deutsch": "machen; tun; bilden; hier: drehen"
+      },
+      {
+        "english": "film",
+        "deutsch": "der Film"
+      },
+      {
+        "english": "recording studio",
+        "deutsch": "das Tonstudio"
+      },
+      {
+        "english": "to find",
+        "deutsch": "finden; herausfinden"
+      },
+      {
+        "english": "badminton",
+        "deutsch": "das Badminton"
+      },
+      {
+        "english": "football",
+        "deutsch": "der Fußball"
+      },
+      {
+        "english": "sign language",
+        "deutsch": "die Gebärdensprache"
+      },
+      {
+        "english": "T-shirt",
+        "deutsch": "das T-Shirt"
+      },
+      {
+        "english": "game",
+        "deutsch": "das Spiel"
+      }
+    ],
+    "26": [
+      {
+        "english": "all",
+        "deutsch": "alle; ganz; alles; all"
+      },
+      {
+        "english": "problem",
+        "deutsch": "das Problem"
+      },
+      {
+        "english": "let's (= let us)",
+        "deutsch": "lass(t) uns"
+      },
+      {
+        "english": "not",
+        "deutsch": "nicht"
+      },
+      {
+        "english": "there",
+        "deutsch": "da; dort"
+      },
+      {
+        "english": "to ask",
+        "deutsch": "fragen"
+      },
+      {
+        "english": "someone",
+        "deutsch": "jemand"
+      },
+      {
+        "english": "quick",
+        "deutsch": "schnell"
+      },
+      {
+        "english": "bike",
+        "deutsch": "das Fahrrad"
+      },
+      {
+        "english": "to stop",
+        "deutsch": "anhalten; stoppen; stehen bleiben; aufhören; abstellen"
+      },
+      {
+        "english": "our",
+        "deutsch": "unser / unsere"
+      },
+      {
+        "english": "has",
+        "deutsch": "hat"
+      },
+      {
+        "english": "I'm sorry.",
+        "deutsch": "Es tut mir leid.; Entschuldigung."
+      },
+      {
+        "english": "who",
+        "deutsch": "wer"
+      }
+    ],
+    "27": [
+      {
+        "english": "I spy with my little eye...",
+        "deutsch": "Ich sehe was, was du nicht siehst"
+      }
+    ]
+  },
+  "Unit 2": {
+    "34": [
+      {
+        "english": "family",
+        "deutsch": "die Familie"
+      },
+      {
+        "english": "home",
+        "deutsch": "das Zuhause; das Heim"
+      }
+    ],
+    "35": [
+      {
+        "english": "to live",
+        "deutsch": "wohnen; leben"
+      },
+      {
+        "english": "house",
+        "deutsch": "das Haus"
+      },
+      {
+        "english": "mum",
+        "deutsch": "die Mama"
+      },
+      {
+        "english": "sister",
+        "deutsch": "die Schwester"
+      },
+      {
+        "english": "brother",
+        "deutsch": "der Bruder"
+      },
+      {
+        "english": "cat",
+        "deutsch": "die Katze"
+      },
+      {
+        "english": "his",
+        "deutsch": "sein / seine"
+      },
+      {
+        "english": "there are",
+        "deutsch": "es gibt; da sind"
+      },
+      {
+        "english": "bedroom",
+        "deutsch": "das Schlafzimmer; das Kinderzimmer"
+      },
+      {
+        "english": "own",
+        "deutsch": "eigene / eigener / eigenes"
+      },
+      {
+        "english": "room",
+        "deutsch": "das Zimmer; der Raum; der Platz"
+      },
+      {
+        "english": "dad",
+        "deutsch": "der Papa"
+      },
+      {
+        "english": "flat",
+        "deutsch": "die Wohnung"
+      },
+      {
+        "english": "to share",
+        "deutsch": "teilen"
+      }
+    ],
+    "36": [
+      {
+        "english": "grandpa",
+        "deutsch": "der Opa"
+      },
+      {
+        "english": "birthday",
+        "deutsch": "der Geburtstag"
+      },
+      {
+        "english": "funny",
+        "deutsch": "lustig; witzig; komisch; merkwürdig; seltsam"
+      },
+      {
+        "english": "hat",
+        "deutsch": "der Hut"
+      },
+      {
+        "english": "cheeky",
+        "deutsch": "frech"
+      },
+      {
+        "english": "very",
+        "deutsch": "sehr; wirklich"
+      },
+      {
+        "english": "fifteen",
+        "deutsch": "fünfzehn"
+      },
+      {
+        "english": "isn't (= is not)",
+        "deutsch": "ist nicht"
+      },
+      {
+        "english": "big",
+        "deutsch": "groß"
+      },
+      {
+        "english": "fan",
+        "deutsch": "der Fan"
+      },
+      {
+        "english": "of",
+        "deutsch": "von"
+      },
+      {
+        "english": "party",
+        "deutsch": "die Party; die Feier"
+      },
+      {
+        "english": "grandma",
+        "deutsch": "die Oma"
+      },
+      {
+        "english": "dog",
+        "deutsch": "der Hund"
+      },
+      {
+        "english": "crazy",
+        "deutsch": "verrückt"
+      },
+      {
+        "english": "him",
+        "deutsch": "ihm; ihn"
+      }
+    ],
+    "37": [
+      {
+        "english": "father",
+        "deutsch": "der Vater"
+      },
+      {
+        "english": "mother",
+        "deutsch": "die Mutter"
+      },
+      {
+        "english": "another",
+        "deutsch": "ein anderer / eine andere; noch ein"
+      },
+      {
+        "english": "hand",
+        "deutsch": "die Hand"
+      },
+      {
+        "english": "one another",
+        "deutsch": "einander; gegenseitig"
+      },
+      {
+        "english": "twin",
+        "deutsch": "der Zwilling; Zwillings-"
+      },
+      {
+        "english": "cousin",
+        "deutsch": "der Cousin / die Cousine"
+      },
+      {
+        "english": "or",
+        "deutsch": "oder"
+      },
+      {
+        "english": "their",
+        "deutsch": "ihr (Pl.); ihre (Pl.)"
+      },
+      {
+        "english": "parents",
+        "deutsch": "die Eltern"
+      },
+      {
+        "english": "aunt",
+        "deutsch": "die Tante"
+      },
+      {
+        "english": "uncle",
+        "deutsch": "der Onkel"
+      },
+      {
+        "english": "grandparents",
+        "deutsch": "die Großeltern"
+      },
+      {
+        "english": "step-",
+        "deutsch": "Stief-"
+      },
+      {
+        "english": "great-",
+        "deutsch": "Ur-"
+      },
+      {
+        "english": "stepmum",
+        "deutsch": "die Stiefmutter"
+      },
+      {
+        "english": "stepdad",
+        "deutsch": "der Stiefvater"
+      },
+      {
+        "english": "stepsister",
+        "deutsch": "die Stiefschwester"
+      },
+      {
+        "english": "stepbrother",
+        "deutsch": "der Stiefbruder"
+      },
+      {
+        "english": "stepmother",
+        "deutsch": "die Stiefmutter"
+      },
+      {
+        "english": "great-grandparents",
+        "deutsch": "die Urgroßeltern"
+      },
+      {
+        "english": "partner",
+        "deutsch": "der Partner / die Partnerin"
+      },
+      {
+        "english": "son",
+        "deutsch": "der Sohn"
+      },
+      {
+        "english": "only child",
+        "deutsch": "das Einzelkind"
+      }
+    ],
+    "39": [
+      {
+        "english": "aren't (= are not)",
+        "deutsch": "bist/sind/seid nicht"
+      }
+    ],
+    "41": [
+      {
+        "english": "small",
+        "deutsch": "klein"
+      },
+      {
+        "english": "kitchen",
+        "deutsch": "die Küche"
+      },
+      {
+        "english": "garden",
+        "deutsch": "der Garten"
+      },
+      {
+        "english": "living room",
+        "deutsch": "das Wohnzimmer"
+      },
+      {
+        "english": "attic",
+        "deutsch": "der Dachboden"
+      },
+      {
+        "english": "bathroom",
+        "deutsch": "das Badezimmer; das Bad"
+      },
+      {
+        "english": "dining room",
+        "deutsch": "das Esszimmer"
+      },
+      {
+        "english": "hall",
+        "deutsch": "der Flur; der Korridor; die Diele"
+      },
+      {
+        "english": "number",
+        "deutsch": "die Anzahl; die Nummer; die Zahl"
+      },
+      {
+        "english": "people",
+        "deutsch": "die Leute; die Menschen"
+      },
+      {
+        "english": "table",
+        "deutsch": "der Tisch"
+      },
+      {
+        "english": "animal",
+        "deutsch": "das Tier"
+      },
+      {
+        "english": "place",
+        "deutsch": "der Ort; der Platz; die Stelle"
+      }
+    ],
+    "42": [
+      {
+        "english": "afternoon",
+        "deutsch": "der Nachmittag"
+      },
+      {
+        "english": "at home",
+        "deutsch": "zu Hause"
+      },
+      {
+        "english": "can't (= cannot)",
+        "deutsch": "nicht können"
+      },
+      {
+        "english": "must",
+        "deutsch": "müssen"
+      },
+      {
+        "english": "under",
+        "deutsch": "unter"
+      },
+      {
+        "english": "sofa",
+        "deutsch": "das Sofa"
+      },
+      {
+        "english": "cupboard",
+        "deutsch": "der Schrank"
+      },
+      {
+        "english": "to stay",
+        "deutsch": "bleiben; übernachten"
+      },
+      {
+        "english": "door",
+        "deutsch": "die Tür"
+      },
+      {
+        "english": "shelf, shelves",
+        "deutsch": "das Regal, die Regale; das Regalbrett, die Regalbretter"
+      },
+      {
+        "english": "bed",
+        "deutsch": "das Bett"
+      },
+      {
+        "english": "box",
+        "deutsch": "die Box; die Kiste; die Schachtel"
+      },
+      {
+        "english": "snack",
+        "deutsch": "der Snack; der Imbiss"
+      },
+      {
+        "english": "there's (= there is)",
+        "deutsch": "es gibt; da ist; dort ist"
+      },
+      {
+        "english": "packet",
+        "deutsch": "die Packung; das Päckchen"
+      },
+      {
+        "english": "thing",
+        "deutsch": "die Sache; das Ding"
+      },
+      {
+        "english": "trick",
+        "deutsch": "der Trick; das Kunststück; der Streich"
+      },
+      {
+        "english": "picture",
+        "deutsch": "das Bild"
+      },
+      {
+        "english": "her",
+        "deutsch": "ihr / ihre; sie"
+      },
+      {
+        "english": "in front of",
+        "deutsch": "vor; davor"
+      },
+      {
+        "english": "next to",
+        "deutsch": "neben"
+      },
+      {
+        "english": "behind",
+        "deutsch": "hinter"
+      }
+    ],
+    "43": [
+      {
+        "english": "lamp",
+        "deutsch": "die Lampe"
+      },
+      {
+        "english": "bin",
+        "deutsch": "der Mülleimer"
+      },
+      {
+        "english": "chair",
+        "deutsch": "der Stuhl"
+      },
+      {
+        "english": "window",
+        "deutsch": "das Fenster"
+      },
+      {
+        "english": "pillow",
+        "deutsch": "das Kopfkissen"
+      },
+      {
+        "english": "mirror",
+        "deutsch": "der Spiegel"
+      },
+      {
+        "english": "curtain",
+        "deutsch": "der Vorhang"
+      },
+      {
+        "english": "carpet",
+        "deutsch": "der Teppich"
+      },
+      {
+        "english": "drawer",
+        "deutsch": "die Schublade"
+      }
+    ],
+    "44": [
+      {
+        "english": "her",
+        "deutsch": "ihr / ihre; sie"
+      }
+    ],
+    "47": [
+      {
+        "english": "about",
+        "deutsch": "über"
+      },
+      {
+        "english": "photo",
+        "deutsch": "das Foto"
+      }
+    ],
+    "48": [
+      {
+        "english": "every",
+        "deutsch": "jede/jeder/jedes"
+      },
+      {
+        "english": "to want (to)",
+        "deutsch": "wollen; mögen"
+      },
+      {
+        "english": "to go shopping",
+        "deutsch": "einkaufen gehen"
+      },
+      {
+        "english": "fantastic",
+        "deutsch": "fantastisch; großartig"
+      },
+      {
+        "english": "smart",
+        "deutsch": "schlau; klug; intelligent; gepflegt; schick"
+      },
+      {
+        "english": "to do",
+        "deutsch": "machen; tun"
+      },
+      {
+        "english": "light",
+        "deutsch": "das Licht"
+      },
+      {
+        "english": "Stop it!",
+        "deutsch": "Hör(t) auf!"
+      },
+      {
+        "english": "fridge",
+        "deutsch": "der Kühlschrank"
+      },
+      {
+        "english": "vacuum cleaner",
+        "deutsch": "der Staubsauger"
+      },
+      {
+        "english": "to clean",
+        "deutsch": "sauber machen; putzen"
+      }
+    ],
+    "49": [
+      {
+        "english": "cold",
+        "deutsch": "kalt"
+      },
+      {
+        "english": "to be cold",
+        "deutsch": "frieren"
+      },
+      {
+        "english": "to know",
+        "deutsch": "wissen; kennen"
+      },
+      {
+        "english": "What's wrong?",
+        "deutsch": "Was ist los?; Was stimmt nicht?"
+      },
+      {
+        "english": "so",
+        "deutsch": "so; also; daher"
+      },
+      {
+        "english": "happy",
+        "deutsch": "glücklich"
+      },
+      {
+        "english": "water",
+        "deutsch": "das Wasser"
+      }
+    ]
+  },
+  "Unit 3": {
+    "56": [
+      {
+        "english": "daily",
+        "deutsch": "täglich; Alltags-"
+      }
+    ],
+    "57": [
+      {
+        "english": "dance",
+        "deutsch": "Tanz-; der Tanz"
+      },
+      {
+        "english": "club",
+        "deutsch": "der Klub; die Schul-AG"
+      },
+      {
+        "english": "after",
+        "deutsch": "nach"
+      },
+      {
+        "english": "on Mondays",
+        "deutsch": "montags"
+      },
+      {
+        "english": "dancing",
+        "deutsch": "das Tanzen; Tanz-"
+      },
+      {
+        "english": "to eat",
+        "deutsch": "essen"
+      },
+      {
+        "english": "o'clock",
+        "deutsch": "Uhr (Zeitangabe bei vollen Stunden)"
+      },
+      {
+        "english": "in the evening(s)",
+        "deutsch": "abends"
+      },
+      {
+        "english": "to play",
+        "deutsch": "spielen"
+      },
+      {
+        "english": "computer",
+        "deutsch": "der Computer"
+      },
+      {
+        "english": "game",
+        "deutsch": "das Spiel"
+      },
+      {
+        "english": "to watch TV",
+        "deutsch": "fernsehen"
+      },
+      {
+        "english": "to watch",
+        "deutsch": "ansehen; anschauen; beobachten"
+      },
+      {
+        "english": "video",
+        "deutsch": "das Video"
+      },
+      {
+        "english": "often",
+        "deutsch": "oft; häufig"
+      },
+      {
+        "english": "football",
+        "deutsch": "der Fußball"
+      },
+      {
+        "english": "pet",
+        "deutsch": "das Haustier"
+      },
+      {
+        "english": "to take the dog for a walk",
+        "deutsch": "den Hund spazieren führen"
+      },
+      {
+        "english": "to take",
+        "deutsch": "nehmen; mitnehmen"
+      },
+      {
+        "english": "walk",
+        "deutsch": "der Spaziergang"
+      },
+      {
+        "english": "neighbour",
+        "deutsch": "der Nachbar / die Nachbarin"
+      }
+    ],
+    "58": [
+      {
+        "english": "free-time",
+        "deutsch": "Freizeit-"
+      },
+      {
+        "english": "activity",
+        "deutsch": "die Aktivität"
+      },
+      {
+        "english": "thirteen (13)",
+        "deutsch": "dreizehn"
+      },
+      {
+        "english": "fourteen (14)",
+        "deutsch": "vierzehn"
+      },
+      {
+        "english": "fifteen (15)",
+        "deutsch": "fünfzehn"
+      },
+      {
+        "english": "sixteen (16)",
+        "deutsch": "sechzehn"
+      },
+      {
+        "english": "seventeen (17)",
+        "deutsch": "siebzehn"
+      },
+      {
+        "english": "eighteen (18)",
+        "deutsch": "achtzehn"
+      },
+      {
+        "english": "nineteen (19)",
+        "deutsch": "neunzehn"
+      },
+      {
+        "english": "twenty (20)",
+        "deutsch": "zwanzig"
+      },
+      {
+        "english": "twenty-one (21)",
+        "deutsch": "einundzwanzig"
+      },
+      {
+        "english": "twenty-two (22)",
+        "deutsch": "zweiundzwanzig"
+      },
+      {
+        "english": "thirty (30)",
+        "deutsch": "dreißig"
+      },
+      {
+        "english": "forty (40)",
+        "deutsch": "vierzig"
+      },
+      {
+        "english": "fifty (50)",
+        "deutsch": "fünfzig"
+      },
+      {
+        "english": "sixty (60)",
+        "deutsch": "sechzig"
+      },
+      {
+        "english": "seventy (70)",
+        "deutsch": "siebzig"
+      },
+      {
+        "english": "eighty (80)",
+        "deutsch": "achtzig"
+      },
+      {
+        "english": "ninety (90)",
+        "deutsch": "neunzig"
+      },
+      {
+        "english": "a/ one hundred (100)",
+        "deutsch": "einhundert; hundert"
+      },
+      {
+        "english": "all",
+        "deutsch": "alle; ganz; alles; all"
+      },
+      {
+        "english": "popular",
+        "deutsch": "beliebt"
+      },
+      {
+        "english": "instrument",
+        "deutsch": "das Instrument"
+      },
+      {
+        "english": "to do sport",
+        "deutsch": "Sport treiben"
+      },
+      {
+        "english": "cinema",
+        "deutsch": "das Kino"
+      },
+      {
+        "english": "to do handicrafts",
+        "deutsch": "basteln"
+      },
+      {
+        "english": "to read",
+        "deutsch": "lesen"
+      },
+      {
+        "english": "May",
+        "deutsch": "Mai"
+      },
+      {
+        "english": "survey",
+        "deutsch": "die Umfrage"
+      },
+      {
+        "english": "next",
+        "deutsch": "als Nächstes"
+      },
+      {
+        "english": "only",
+        "deutsch": "nur"
+      },
+      {
+        "english": "guitar",
+        "deutsch": "die Gitarre"
+      },
+      {
+        "english": "keyboard",
+        "deutsch": "das Keyboard; die Tastatur"
+      },
+      {
+        "english": "usually",
+        "deutsch": "normalerweise; gewöhnlich"
+      },
+      {
+        "english": "to go cycling",
+        "deutsch": "Fahrrad fahren"
+      },
+      {
+        "english": "weekend",
+        "deutsch": "das Wochenende"
+      },
+      {
+        "english": "sometimes",
+        "deutsch": "manchmal"
+      },
+      {
+        "english": "never",
+        "deutsch": "nie; niemals"
+      },
+      {
+        "english": "to get",
+        "deutsch": "werden; bekommen"
+      },
+      {
+        "english": "to think",
+        "deutsch": "finden; denken; glauben"
+      },
+      {
+        "english": "a lot of",
+        "deutsch": "viel(e); eine Menge"
+      },
+      {
+        "english": "free time",
+        "deutsch": "die Freizeit"
+      }
+    ],
+    "59": [
+      {
+        "english": "to repair",
+        "deutsch": "reparieren"
+      },
+      {
+        "english": "to go swimming",
+        "deutsch": "schwimmen gehen"
+      },
+      {
+        "english": "to take photos",
+        "deutsch": "fotografieren; Fotos machen"
+      },
+      {
+        "english": "to chat",
+        "deutsch": "chatten; plaudern"
+      },
+      {
+        "english": "to text",
+        "deutsch": "eine SMS schreiben; texten"
+      },
+      {
+        "english": "to draw",
+        "deutsch": "zeichnen"
+      },
+      {
+        "english": "to visit",
+        "deutsch": "besuchen"
+      }
+    ],
+    "61": [
+      {
+        "english": "every",
+        "deutsch": "jede/jeder/jedes"
+      },
+      {
+        "english": "England",
+        "deutsch": "England"
+      }
+    ],
+    "63": [
+      {
+        "english": "What time is it?",
+        "deutsch": "Wie spät ist es?; Wie viel Uhr ist es?"
+      },
+      {
+        "english": "half past (six)",
+        "deutsch": "halb (sieben)"
+      },
+      {
+        "english": "quarter to / past",
+        "deutsch": "Viertel vor / nach (bei Uhrzeitangaben)"
+      }
+    ],
+    "64": [
+      {
+        "english": "routine",
+        "deutsch": "die Routine; der Ablauf"
+      },
+      {
+        "english": "to have breakfast",
+        "deutsch": "frühstücken"
+      },
+      {
+        "english": "astronaut",
+        "deutsch": "der Astronaut / die Astronautin"
+      },
+      {
+        "english": "to visit",
+        "deutsch": "besuchen"
+      },
+      {
+        "english": "question",
+        "deutsch": "die Frage"
+      },
+      {
+        "english": "answer",
+        "deutsch": "die Antwort"
+      },
+      {
+        "english": "when",
+        "deutsch": "wann"
+      },
+      {
+        "english": "to get up",
+        "deutsch": "aufstehen"
+      },
+      {
+        "english": "space station",
+        "deutsch": "die Raumstation"
+      },
+      {
+        "english": "then",
+        "deutsch": "dann; danach"
+      },
+      {
+        "english": "to get dressed",
+        "deutsch": "sich anziehen"
+      },
+      {
+        "english": "food",
+        "deutsch": "das Essen; die Nahrung; das Lebensmittel, die Lebensmittel"
+      },
+      {
+        "english": "chef",
+        "deutsch": "der Koch / die Köchin"
+      },
+      {
+        "english": "to cook",
+        "deutsch": "kochen"
+      },
+      {
+        "english": "special",
+        "deutsch": "speziell; besonders"
+      },
+      {
+        "english": "to have dinner",
+        "deutsch": "zu Abend essen"
+      },
+      {
+        "english": "to start",
+        "deutsch": "anfangen; beginnen; starten"
+      },
+      {
+        "english": "to work",
+        "deutsch": "arbeiten"
+      },
+      {
+        "english": "experiment",
+        "deutsch": "der Versuch; das Experiment"
+      },
+      {
+        "english": "earth",
+        "deutsch": "die Erde; der Boden; der Erdboden"
+      },
+      {
+        "english": "chore",
+        "deutsch": "die Aufgabe; die Arbeit"
+      },
+      {
+        "english": "for example",
+        "deutsch": "zum Beispiel"
+      },
+      {
+        "english": "hour",
+        "deutsch": "die Stunde"
+      },
+      {
+        "english": "running",
+        "deutsch": "das Laufen"
+      }
+    ],
+    "65": [
+      {
+        "english": "rubbish",
+        "deutsch": "der Müll; der Abfall"
+      },
+      {
+        "english": "to tidy (up)",
+        "deutsch": "aufräumen; in Ordnung bringen"
+      },
+      {
+        "english": "desk",
+        "deutsch": "der Schreibtisch"
+      },
+      {
+        "english": "to look after",
+        "deutsch": "aufpassen; hüten"
+      },
+      {
+        "english": "to feed",
+        "deutsch": "füttern"
+      }
+    ],
+    "69": [
+      {
+        "english": "train",
+        "deutsch": "der Zug"
+      },
+      {
+        "english": "ticket",
+        "deutsch": "der Fahrschein; die Fahrkarte; die Eintrittskarte"
+      },
+      {
+        "english": "to arrive",
+        "deutsch": "ankommen"
+      },
+      {
+        "english": "ticket office",
+        "deutsch": "der Fahrkartenschalter"
+      },
+      {
+        "english": "to leave",
+        "deutsch": "abfahren; verlassen; lassen"
+      },
+      {
+        "english": "platform",
+        "deutsch": "der Bahnsteig"
+      },
+      {
+        "english": "to be late",
+        "deutsch": "Verspätung haben; zu spät sein"
+      },
+      {
+        "english": "cleaning",
+        "deutsch": "das Saubermachen; die Reinigung"
+      },
+      {
+        "english": "minute",
+        "deutsch": "die Minute"
+      },
+      {
+        "english": "to buy",
+        "deutsch": "kaufen"
+      },
+      {
+        "english": "long",
+        "deutsch": "lang; lange"
+      },
+      {
+        "english": "closed",
+        "deutsch": "geschlossen"
+      }
+    ],
+    "70": [
+      {
+        "english": "also",
+        "deutsch": "auch"
+      },
+      {
+        "english": "to feed",
+        "deutsch": "füttern"
+      },
+      {
+        "english": "litter tray",
+        "deutsch": "das Katzenklo"
+      },
+      {
+        "english": "upset",
+        "deutsch": "aufgebracht; aufgeregt; traurig; bestürzt"
+      },
+      {
+        "english": "to forget",
+        "deutsch": "vergessen"
+      },
+      {
+        "english": "bad",
+        "deutsch": "schlecht; schlimm"
+      },
+      {
+        "english": "during",
+        "deutsch": "während"
+      },
+      {
+        "english": "fit",
+        "deutsch": "fit; in Form"
+      },
+      {
+        "english": "night",
+        "deutsch": "die Nacht; der Abend"
+      },
+      {
+        "english": "nearly",
+        "deutsch": "fast; beinahe; annähernd"
+      },
+      {
+        "english": "dark",
+        "deutsch": "dunkel"
+      },
+      {
+        "english": "bird",
+        "deutsch": "der Vogel"
+      },
+      {
+        "english": "loud",
+        "deutsch": "laut"
+      },
+      {
+        "english": "angry",
+        "deutsch": "wütend; zornig; verärgert; böse"
+      },
+      {
+        "english": "myself",
+        "deutsch": "mich; mir; selbst; selber"
+      },
+      {
+        "english": "to fight",
+        "deutsch": "kämpfen; (sich) streiten"
+      },
+      {
+        "english": "to run away",
+        "deutsch": "weglaufen"
+      },
+      {
+        "english": "to win",
+        "deutsch": "gewinnen; siegen"
+      },
+      {
+        "english": "silly",
+        "deutsch": "blöd; dumm; doof; albern"
+      },
+      {
+        "english": "to smell",
+        "deutsch": "riechen"
+      },
+      {
+        "english": "fish, fish",
+        "deutsch": "der Fisch, die Fische"
+      },
+      {
+        "english": "across",
+        "deutsch": "über"
+      },
+      {
+        "english": "to love",
+        "deutsch": "lieben; gern mögen"
+      },
+      {
+        "english": "a piece of",
+        "deutsch": "ein Stück"
+      },
+      {
+        "english": "near",
+        "deutsch": "in der Nähe von"
+      },
+      {
+        "english": "extra",
+        "deutsch": "zusätzlich; Zusatz-"
+      },
+      {
+        "english": "yummy",
+        "deutsch": "lecker"
+      },
+      {
+        "english": "idea",
+        "deutsch": "die Idee; die Ahnung"
+      },
+      {
+        "english": "tired",
+        "deutsch": "müde"
+      },
+      {
+        "english": "hungry",
+        "deutsch": "hungrig"
+      },
+      {
+        "english": "until",
+        "deutsch": "bis"
+      },
+      {
+        "english": "today",
+        "deutsch": "heute"
+      }
+    ],
+    "71": [
+      {
+        "english": "to sleep",
+        "deutsch": "schlafen"
+      },
+      {
+        "english": "outside",
+        "deutsch": "(nach) draußen; im Freien; vor"
+      },
+      {
+        "english": "picture",
+        "deutsch": "das Bild"
+      },
+      {
+        "english": "adjective",
+        "deutsch": "das Adjektiv; das Eigenschaftswort"
+      }
+    ]
+  },
+  "Unit 4": {
+    "79": [
+      {
+        "english": "part",
+        "deutsch": "der Stadtteil; der Teil; die Gegend"
+      },
+      {
+        "english": "town",
+        "deutsch": "die Stadt"
+      },
+      {
+        "english": "far",
+        "deutsch": "weit"
+      },
+      {
+        "english": "centre",
+        "deutsch": "das Zentrum; die Mitte; das Center"
+      },
+      {
+        "english": "a lot",
+        "deutsch": "viel"
+      },
+      {
+        "english": "famous",
+        "deutsch": "berühmt"
+      },
+      {
+        "english": "museum",
+        "deutsch": "das Museum"
+      },
+      {
+        "english": "ship",
+        "deutsch": "das Schiff"
+      },
+      {
+        "english": "park",
+        "deutsch": "der Park"
+      },
+      {
+        "english": "street",
+        "deutsch": "die Straße"
+      },
+      {
+        "english": "market",
+        "deutsch": "der Markt"
+      },
+      {
+        "english": "castle",
+        "deutsch": "das Schloss; die Burg"
+      },
+      {
+        "english": "village",
+        "deutsch": "das Dorf"
+      },
+      {
+        "english": "city",
+        "deutsch": "die Stadt; die Großstadt"
+      },
+      {
+        "english": "between",
+        "deutsch": "zwischen"
+      },
+      {
+        "english": "church",
+        "deutsch": "die Kirche"
+      },
+      {
+        "english": "river",
+        "deutsch": "der Fluss"
+      }
+    ],
+    "80": [
+      {
+        "english": "shop",
+        "deutsch": "der Laden; das Geschäft"
+      },
+      {
+        "english": "snack bar",
+        "deutsch": "das Café; die Imbissstube"
+      },
+      {
+        "english": "youth club",
+        "deutsch": "der Jugendtreff"
+      },
+      {
+        "english": "swimming pool",
+        "deutsch": "das Schwimmbad"
+      },
+      {
+        "english": "pitch",
+        "deutsch": "das Spielfeld; der Platz"
+      },
+      {
+        "english": "supermarket",
+        "deutsch": "der Supermarkt"
+      }
+    ],
+    "81": [
+      {
+        "english": "to buy",
+        "deutsch": "kaufen"
+      },
+      {
+        "english": "different",
+        "deutsch": "unterschiedlich; anders; verschieden"
+      },
+      {
+        "english": "product",
+        "deutsch": "das Produkt"
+      },
+      {
+        "english": "to borrow",
+        "deutsch": "ausleihen"
+      },
+      {
+        "english": "clothes",
+        "deutsch": "die Kleider; die Kleidung"
+      },
+      {
+        "english": "to hang out (with)",
+        "deutsch": "rumhängen (mit); sich treffen (mit); sich herumtreiben (mit)"
+      },
+      {
+        "english": "sandwich",
+        "deutsch": "das Sandwich; das Butterbrot; das belegte Brot"
+      },
+      {
+        "english": "baker’s",
+        "deutsch": "die Bäckerei"
+      },
+      {
+        "english": "theatre",
+        "deutsch": "das Theater"
+      },
+      {
+        "english": "restaurant",
+        "deutsch": "das Restaurant"
+      },
+      {
+        "english": "skate park",
+        "deutsch": "der Skatepark"
+      }
+    ],
+    "82": [
+      {
+        "english": "early",
+        "deutsch": "früh"
+      },
+      {
+        "english": "What about …?",
+        "deutsch": "Was ist mit …?"
+      },
+      {
+        "english": "false",
+        "deutsch": "falsch"
+      }
+    ],
+    "83": [
+      {
+        "english": "minute",
+        "deutsch": "die Minute"
+      },
+      {
+        "english": "to come",
+        "deutsch": "kommen"
+      },
+      {
+        "english": "now",
+        "deutsch": "jetzt; nun"
+      }
+    ],
+    "85": [
+      {
+        "english": "cable car",
+        "deutsch": "die Seilbahn"
+      }
+    ],
+    "86": [
+      {
+        "english": "way",
+        "deutsch": "der Weg; die Richtung"
+      },
+      {
+        "english": "tourist",
+        "deutsch": "der Tourist / die Touristin"
+      },
+      {
+        "english": "Germany",
+        "deutsch": "Deutschland"
+      },
+      {
+        "english": "to tell",
+        "deutsch": "sagen; erzählen"
+      },
+      {
+        "english": "straight on",
+        "deutsch": "geradeaus"
+      },
+      {
+        "english": "until",
+        "deutsch": "bis"
+      },
+      {
+        "english": "pond",
+        "deutsch": "der Teich; der Tümpel"
+      },
+      {
+        "english": "to turn",
+        "deutsch": "abbiegen"
+      },
+      {
+        "english": "left",
+        "deutsch": "links"
+      },
+      {
+        "english": "into",
+        "deutsch": "in; hinein"
+      },
+      {
+        "english": "right",
+        "deutsch": "rechts"
+      },
+      {
+        "english": "right",
+        "deutsch": "richtig; korrekt"
+      },
+      {
+        "english": "car park",
+        "deutsch": "der Parkplatz"
+      },
+      {
+        "english": "through",
+        "deutsch": "durch"
+      },
+      {
+        "english": "first",
+        "deutsch": "erste / erster / erstes"
+      },
+      {
+        "english": "crossing",
+        "deutsch": "die Kreuzung"
+      },
+      {
+        "english": "restaurant",
+        "deutsch": "das Restaurant"
+      },
+      {
+        "english": "on the right",
+        "deutsch": "auf der rechten Seite; rechts"
+      },
+      {
+        "english": "to take",
+        "deutsch": "dauern"
+      },
+      {
+        "english": "You’re welcome.",
+        "deutsch": "Gern geschehen."
+      }
+    ],
+    "87": [
+      {
+        "english": "to cross",
+        "deutsch": "überqueren"
+      },
+      {
+        "english": "road",
+        "deutsch": "die Straße"
+      },
+      {
+        "english": "corner",
+        "deutsch": "die Ecke"
+      },
+      {
+        "english": "opposite",
+        "deutsch": "gegenüber"
+      },
+      {
+        "english": "traffic light",
+        "deutsch": "die Ampel"
+      },
+      {
+        "english": "round",
+        "deutsch": "um … herum"
+      },
+      {
+        "english": "roundabout",
+        "deutsch": "der Kreisverkehr"
+      },
+      {
+        "english": "second",
+        "deutsch": "zweite / zweiter / zweites"
+      },
+      {
+        "english": "on the left",
+        "deutsch": "auf der linken Seite; links"
+      },
+      {
+        "english": "over",
+        "deutsch": "über"
+      },
+      {
+        "english": "bridge",
+        "deutsch": "die Brücke"
+      },
+      {
+        "english": "along",
+        "deutsch": "entlang"
+      }
+    ],
+    "88": [
+      {
+        "english": "car",
+        "deutsch": "das Auto"
+      },
+      {
+        "english": "tram",
+        "deutsch": "die Straßenbahn"
+      },
+      {
+        "english": "bus",
+        "deutsch": "der Bus"
+      },
+      {
+        "english": "underground train",
+        "deutsch": "die U-Bahn"
+      },
+      {
+        "english": "scooter",
+        "deutsch": "der Roller"
+      },
+      {
+        "english": "on foot",
+        "deutsch": "zu Fuß"
+      },
+      {
+        "english": "foot, feet",
+        "deutsch": "der Fuß, die Füße"
+      },
+      {
+        "english": "ferry",
+        "deutsch": "die Fähre"
+      },
+      {
+        "english": "motorbike",
+        "deutsch": "das Motorrad"
+      },
+      {
+        "english": "helicopter",
+        "deutsch": "der Helikopter; der Hubschrauber"
+      },
+      {
+        "english": "taxi",
+        "deutsch": "das Taxi"
+      },
+      {
+        "english": "plane",
+        "deutsch": "das Flugzeug"
+      },
+      {
+        "english": "boat",
+        "deutsch": "das Boot"
+      },
+      {
+        "english": "air",
+        "deutsch": "die Luft"
+      },
+      {
+        "english": "ground",
+        "deutsch": "der Boden; der Erdboden"
+      }
+    ],
+    "89": [
+      {
+        "english": "long",
+        "deutsch": "lang; lange"
+      },
+      {
+        "english": "bus stop",
+        "deutsch": "die Bushaltestelle"
+      },
+      {
+        "english": "by (bike)",
+        "deutsch": "mit (dem Fahrrad)"
+      }
+    ],
+    "91": [
+      {
+        "english": "to get around",
+        "deutsch": "herumkommen"
+      },
+      {
+        "english": "to ride",
+        "deutsch": "fahren; reiten"
+      },
+      {
+        "english": "skateboard",
+        "deutsch": "das Skateboard"
+      },
+      {
+        "english": "boat",
+        "deutsch": "das Boot"
+      },
+      {
+        "english": "to drive",
+        "deutsch": "fahren; treiben"
+      },
+      {
+        "english": "work",
+        "deutsch": "die Arbeit"
+      },
+      {
+        "english": "Mind the gap.",
+        "deutsch": "Vorsicht beim Ein- und Aussteigen."
+      },
+      {
+        "english": "tunnel",
+        "deutsch": "der Tunnel"
+      }
+    ],
+    "92": [
+      {
+        "english": "important",
+        "deutsch": "wichtig; einflussreich"
+      },
+      {
+        "english": "news",
+        "deutsch": "die Nachrichten; die Neuigkeiten"
+      },
+      {
+        "english": "kangaroo",
+        "deutsch": "das Känguru"
+      },
+      {
+        "english": "hole",
+        "deutsch": "das Loch"
+      },
+      {
+        "english": "fence",
+        "deutsch": "der Zaun"
+      },
+      {
+        "english": "zoo",
+        "deutsch": "der Zoo; der Tierpark"
+      },
+      {
+        "english": "some",
+        "deutsch": "ein paar; einige; manche; etwas"
+      },
+      {
+        "english": "staff",
+        "deutsch": "das Personal; die Belegschaft; das Kollegium"
+      },
+      {
+        "english": "pizza",
+        "deutsch": "die Pizza"
+      },
+      {
+        "english": "to scream",
+        "deutsch": "schreien; kreischen"
+      },
+      {
+        "english": "to run",
+        "deutsch": "rennen; laufen"
+      },
+      {
+        "english": "out",
+        "deutsch": "heraus"
+      },
+      {
+        "english": "why",
+        "deutsch": "warum"
+      },
+      {
+        "english": "help",
+        "deutsch": "die Hilfe"
+      },
+      {
+        "english": "about",
+        "deutsch": "ungefähr; circa; etwa"
+      },
+      {
+        "english": "tall",
+        "deutsch": "groß; hoch"
+      },
+      {
+        "english": "police officer",
+        "deutsch": "der Polizeibeamte / die Polizeibeamtin"
+      },
+      {
+        "english": "took",
+        "deutsch": "nahm"
+      },
+      {
+        "english": "large",
+        "deutsch": "groß"
+      },
+      {
+        "english": "left",
+        "deutsch": "verschwand"
+      },
+      {
+        "english": "closed",
+        "deutsch": "gesperrt; geschlossen"
+      },
+      {
+        "english": "shopping centre",
+        "deutsch": "das Einkaufszentrum"
+      },
+      {
+        "english": "toy",
+        "deutsch": "das Spielzeug"
+      },
+      {
+        "english": "its",
+        "deutsch": "ihr / ihre; sein / seine"
+      },
+      {
+        "english": "police",
+        "deutsch": "die Polizei"
+      },
+      {
+        "english": "to call",
+        "deutsch": "rufen; anrufen"
+      },
+      {
+        "english": "if",
+        "deutsch": "wenn; falls"
+      },
+      {
+        "english": "has stopped",
+        "deutsch": "hier: wurde angehalten"
+      },
+      {
+        "english": "to kick",
+        "deutsch": "schießen; treten"
+      },
+      {
+        "english": "ball",
+        "deutsch": "der Ball"
+      },
+      {
+        "english": "to score",
+        "deutsch": "ein Tor schießen; punkten"
+      },
+      {
+        "english": "goal",
+        "deutsch": "das Tor; das Ziel"
+      },
+      {
+        "english": "back",
+        "deutsch": "zurück"
+      },
+      {
+        "english": "safe",
+        "deutsch": "in Sicherheit; sicher"
+      },
+      {
+        "english": "everyone",
+        "deutsch": "jeder"
+      },
+      {
+        "english": "lion",
+        "deutsch": "der Löwe"
+      },
+      {
+        "english": "still",
+        "deutsch": "immer noch; noch"
+      },
+      {
+        "english": "to be missing",
+        "deutsch": "fehlen"
+      }
+    ],
+    "94": [
+      {
+        "english": "café",
+        "deutsch": "das Café"
+      },
+      {
+        "english": "sports centre",
+        "deutsch": "das Sportzentrum"
+      }
+    ]
+  },
+  "Unit 5": {
+    "100": [
+      {
+        "english": "around",
+        "deutsch": "rund um; um … herum"
+      }
+    ],
+    "101": [
+      {
+        "english": "season",
+        "deutsch": "die Jahreszeit; die Saison"
+      },
+      {
+        "english": "spring",
+        "deutsch": "der Frühling; das Frühjahr"
+      },
+      {
+        "english": "weather",
+        "deutsch": "das Wetter"
+      },
+      {
+        "english": "warm",
+        "deutsch": "warm"
+      },
+      {
+        "english": "summer",
+        "deutsch": "der Sommer"
+      },
+      {
+        "english": "hot",
+        "deutsch": "heiß"
+      },
+      {
+        "english": "sunny",
+        "deutsch": "sonnig"
+      },
+      {
+        "english": "picnic",
+        "deutsch": "das Picknick"
+      },
+      {
+        "english": "holiday",
+        "deutsch": "die Ferien; der Urlaub; der Feiertag"
+      },
+      {
+        "english": "autumn",
+        "deutsch": "der Herbst"
+      },
+      {
+        "english": "windy",
+        "deutsch": "windig"
+      },
+      {
+        "english": "rainy",
+        "deutsch": "regnerisch"
+      },
+      {
+        "english": "tree",
+        "deutsch": "der Baum"
+      },
+      {
+        "english": "beautiful",
+        "deutsch": "schön; hübsch"
+      },
+      {
+        "english": "winter",
+        "deutsch": "der Winter"
+      },
+      {
+        "english": "to rain",
+        "deutsch": "regnen"
+      },
+      {
+        "english": "much",
+        "deutsch": "viel"
+      },
+      {
+        "english": "snow",
+        "deutsch": "der Schnee"
+      },
+      {
+        "english": "Christmas",
+        "deutsch": "das Weihnachten"
+      },
+      {
+        "english": "ice skating",
+        "deutsch": "das Schlittschuhlaufen"
+      }
+    ],
+    "102": [
+      {
+        "english": "first (1st)",
+        "deutsch": "erste"
+      },
+      {
+        "english": "second (2nd)",
+        "deutsch": "zweite"
+      },
+      {
+        "english": "third (3rd)",
+        "deutsch": "dritte"
+      },
+      {
+        "english": "fourth (4th)",
+        "deutsch": "vierte"
+      },
+      {
+        "english": "fifth (5th)",
+        "deutsch": "fünfte"
+      },
+      {
+        "english": "sixth (6th)",
+        "deutsch": "sechste"
+      },
+      {
+        "english": "seventh (7th)",
+        "deutsch": "siebte"
+      },
+      {
+        "english": "eighth (8th)",
+        "deutsch": "achte"
+      },
+      {
+        "english": "ninth (9th)",
+        "deutsch": "neunte"
+      },
+      {
+        "english": "tenth (10th)",
+        "deutsch": "zehnte"
+      },
+      {
+        "english": "eleventh (11th)",
+        "deutsch": "elfte"
+      },
+      {
+        "english": "twelfth (12th)",
+        "deutsch": "zwölfte"
+      },
+      {
+        "english": "thirteenth (13th)",
+        "deutsch": "dreizehnte"
+      },
+      {
+        "english": "fourteenth (14th)",
+        "deutsch": "vierzehnte"
+      },
+      {
+        "english": "fifteenth (15th)",
+        "deutsch": "fünfzehnte"
+      },
+      {
+        "english": "sixteenth (16th)",
+        "deutsch": "sechzehnte"
+      },
+      {
+        "english": "seventeenth (17th)",
+        "deutsch": "siebzehnte"
+      },
+      {
+        "english": "eighteenth (18th)",
+        "deutsch": "achtzehnte"
+      },
+      {
+        "english": "nineteenth (19th)",
+        "deutsch": "neunzehnte"
+      },
+      {
+        "english": "twentieth (20th)",
+        "deutsch": "zwanzigste"
+      },
+      {
+        "english": "21st",
+        "deutsch": "einundzwanzigste"
+      },
+      {
+        "english": "22nd",
+        "deutsch": "zweiundzwanzigste"
+      },
+      {
+        "english": "23rd",
+        "deutsch": "dreiundzwanzigste"
+      },
+      {
+        "english": "24th",
+        "deutsch": "vierundzwanzigste"
+      },
+      {
+        "english": "25th",
+        "deutsch": "fünfundzwanzigste"
+      },
+      {
+        "english": "26th",
+        "deutsch": "sechsundzwanzigste"
+      },
+      {
+        "english": "27th",
+        "deutsch": "siebenundzwanzigste"
+      },
+      {
+        "english": "28th",
+        "deutsch": "achtundzwanzigste"
+      },
+      {
+        "english": "29th",
+        "deutsch": "neunundzwanzigste"
+      },
+      {
+        "english": "thirtieth (30th)",
+        "deutsch": "dreißigste"
+      },
+      {
+        "english": "fortieth (40th)",
+        "deutsch": "vierzigste"
+      },
+      {
+        "english": "fiftieth (50th)",
+        "deutsch": "fünfzigste"
+      },
+      {
+        "english": "sixtieth (60th)",
+        "deutsch": "sechzigste"
+      },
+      {
+        "english": "seventieth (70th)",
+        "deutsch": "siebzigste"
+      },
+      {
+        "english": "eightieth (80th)",
+        "deutsch": "achtzigste"
+      },
+      {
+        "english": "ninetieth (90th)",
+        "deutsch": "neunzigste"
+      },
+      {
+        "english": "hundredth (100th)",
+        "deutsch": "hundertste"
+      },
+      {
+        "english": "January",
+        "deutsch": "Januar"
+      },
+      {
+        "english": "New Year",
+        "deutsch": "das Neujahr"
+      },
+      {
+        "english": "fireworks",
+        "deutsch": "das Feuerwerk"
+      },
+      {
+        "english": "were",
+        "deutsch": "simple past von to be (sein)"
+      },
+      {
+        "english": "them",
+        "deutsch": "sie (Pl.); ihnen"
+      },
+      {
+        "english": "slept",
+        "deutsch": "simple past von to sleep (schlafen)"
+      },
+      {
+        "english": "well",
+        "deutsch": "gut"
+      },
+      {
+        "english": "March",
+        "deutsch": "März"
+      },
+      {
+        "english": "was",
+        "deutsch": "simple past von to be (sein)"
+      },
+      {
+        "english": "got",
+        "deutsch": "simple past von to get (bekommen; werden)"
+      },
+      {
+        "english": "went",
+        "deutsch": "simple past von to go (gehen)"
+      },
+      {
+        "english": "trip",
+        "deutsch": "die Fahrt; der Trip; der Ausflug; die Reise"
+      },
+      {
+        "english": "April",
+        "deutsch": "April"
+      },
+      {
+        "english": "cake",
+        "deutsch": "der Kuchen"
+      },
+      {
+        "english": "sale",
+        "deutsch": "der Verkauf; der Schlussverkauf; der Ausverkauf"
+      },
+      {
+        "english": "had",
+        "deutsch": "simple past von to have (haben; essen)"
+      },
+      {
+        "english": "to bake",
+        "deutsch": "backen"
+      },
+      {
+        "english": "sold",
+        "deutsch": "simple past von to sell (verkaufen)"
+      },
+      {
+        "english": "gave",
+        "deutsch": "simple past von to give (geben)"
+      },
+      {
+        "english": "money",
+        "deutsch": "das Geld"
+      },
+      {
+        "english": "charity",
+        "deutsch": "die Wohltätigkeitsorganisation; die Stiftung"
+      },
+      {
+        "english": "June",
+        "deutsch": "Juni"
+      },
+      {
+        "english": "exam",
+        "deutsch": "die Prüfung; das Examen"
+      },
+      {
+        "english": "to learn",
+        "deutsch": "lernen; herausfinden; erfahren"
+      },
+      {
+        "english": "nervous",
+        "deutsch": "nervös; aufgeregt"
+      },
+      {
+        "english": "August",
+        "deutsch": "August"
+      },
+      {
+        "english": "to spend, spent",
+        "deutsch": "verbringen (Zeit); ausgeben (Geld)"
+      },
+      {
+        "english": "did",
+        "deutsch": "simple past von to do (machen; tun)"
+      },
+      {
+        "english": "saw",
+        "deutsch": "simple past von to see (sehen)"
+      },
+      {
+        "english": "December",
+        "deutsch": "Dezember"
+      },
+      {
+        "english": "German",
+        "deutsch": "deutsch; aus Deutschland"
+      },
+      {
+        "english": "chocolate",
+        "deutsch": "die Schokolade"
+      },
+      {
+        "english": "present",
+        "deutsch": "das Geschenk"
+      }
+    ],
+    "103": [
+      {
+        "english": "bonfire",
+        "deutsch": "das Freudenfeuer; das Feuer (im Freien)"
+      },
+      {
+        "english": "concert",
+        "deutsch": "das Konzert"
+      },
+      {
+        "english": "February",
+        "deutsch": "Februar"
+      },
+      {
+        "english": "July",
+        "deutsch": "Juli"
+      },
+      {
+        "english": "September",
+        "deutsch": "September"
+      },
+      {
+        "english": "October",
+        "deutsch": "Oktober"
+      },
+      {
+        "english": "November",
+        "deutsch": "November"
+      }
+    ],
+    "105": [
+      {
+        "english": "to sell",
+        "deutsch": "verkaufen"
+      },
+      {
+        "english": "bought",
+        "deutsch": "simple past von to buy (kaufen)"
+      },
+      {
+        "english": "to cycle",
+        "deutsch": "Fahrrad fahren"
+      }
+    ],
+    "107": [
+      {
+        "english": "pancake",
+        "deutsch": "der Pfannkuchen; der Eierkuchen"
+      },
+      {
+        "english": "lemon",
+        "deutsch": "die Zitrone"
+      },
+      {
+        "english": "juice",
+        "deutsch": "der Saft"
+      },
+      {
+        "english": "sugar",
+        "deutsch": "der Zucker"
+      },
+      {
+        "english": "jam",
+        "deutsch": "die Marmelade; die Konfitüre"
+      },
+      {
+        "english": "maple syrup",
+        "deutsch": "der Ahornsirup"
+      },
+      {
+        "english": "how to …",
+        "deutsch": "wie man …"
+      },
+      {
+        "english": "race",
+        "deutsch": "das Wettrennen; das Rennen"
+      },
+      {
+        "english": "Pancake Day",
+        "deutsch": "der Fastnachtsdienstag"
+      }
+    ],
+    "108": [
+      {
+        "english": "last",
+        "deutsch": "letzte / letztes / letzter"
+      },
+      {
+        "english": "cloudy",
+        "deutsch": "wolkig"
+      },
+      {
+        "english": "not … either",
+        "deutsch": "auch nicht"
+      },
+      {
+        "english": "yesterday",
+        "deutsch": "gestern"
+      },
+      {
+        "english": "not at all",
+        "deutsch": "überhaupt nicht; gar nicht"
+      },
+      {
+        "english": "before",
+        "deutsch": "vor; vorher; zuvor; bevor"
+      },
+      {
+        "english": "beach",
+        "deutsch": "der Strand"
+      },
+      {
+        "english": "to splash",
+        "deutsch": "(be) spritzen"
+      },
+      {
+        "english": "to laugh",
+        "deutsch": "lachen"
+      },
+      {
+        "english": "wet",
+        "deutsch": "nass"
+      },
+      {
+        "english": "fairground",
+        "deutsch": "der Rummelplatz"
+      },
+      {
+        "english": "ice cream",
+        "deutsch": "die Eiscreme; das Eis"
+      },
+      {
+        "english": "roller coaster",
+        "deutsch": "die Achterbahn"
+      },
+      {
+        "english": "ride",
+        "deutsch": "die Fahrt; der Ritt"
+      },
+      {
+        "english": "ago",
+        "deutsch": "vor (zeitlich)"
+      },
+      {
+        "english": "to feel, felt",
+        "deutsch": "(sich) fühlen"
+      },
+      {
+        "english": "What about you?",
+        "deutsch": "Und du?"
+      }
+    ],
+    "109": [
+      {
+        "english": "dry",
+        "deutsch": "trocken"
+      },
+      {
+        "english": "to need",
+        "deutsch": "brauchen"
+      },
+      {
+        "english": "more",
+        "deutsch": "mehr; weitere"
+      },
+      {
+        "english": "rain",
+        "deutsch": "der Regen"
+      },
+      {
+        "english": "sun",
+        "deutsch": "die Sonne"
+      },
+      {
+        "english": "cloud",
+        "deutsch": "die Wolke"
+      },
+      {
+        "english": "degree",
+        "deutsch": "das Grad"
+      },
+      {
+        "english": "temperature",
+        "deutsch": "die Temperatur; das Fieber"
+      },
+      {
+        "english": "storm",
+        "deutsch": "der Sturm"
+      },
+      {
+        "english": "stormy",
+        "deutsch": "stürmisch"
+      },
+      {
+        "english": "mist",
+        "deutsch": "der Nebel"
+      },
+      {
+        "english": "misty",
+        "deutsch": "neblig"
+      },
+      {
+        "english": "fog",
+        "deutsch": "der Nebel"
+      },
+      {
+        "english": "foggy",
+        "deutsch": "neblig"
+      },
+      {
+        "english": "ice",
+        "deutsch": "das Eis"
+      },
+      {
+        "english": "icy",
+        "deutsch": "eisig"
+      },
+      {
+        "english": "person",
+        "deutsch": "die Person"
+      },
+      {
+        "english": "date",
+        "deutsch": "das Datum"
+      },
+      {
+        "english": "verb",
+        "deutsch": "das Verb"
+      }
+    ]
+  },
+  "Unit 6": {
+    "111": [
+      {
+        "english": "to walk",
+        "deutsch": "laufen; gehen"
+      },
+      {
+        "english": "met",
+        "deutsch": "simple past von to meet (treffen, kennenlernen)"
+      }
+    ],
+    "113": [
+      {
+        "english": "to remember",
+        "deutsch": "sich erinnern (an); sich merken"
+      },
+      {
+        "english": "mountain",
+        "deutsch": "der Berg"
+      },
+      {
+        "english": "tent",
+        "deutsch": "das Zelt"
+      },
+      {
+        "english": "friendly",
+        "deutsch": "freundlich; nett"
+      },
+      {
+        "english": "man, men",
+        "deutsch": "der Mann, die Männer"
+      },
+      {
+        "english": "woman, women",
+        "deutsch": "die Frau, die Frauen"
+      },
+      {
+        "english": "interview",
+        "deutsch": "das Interview; die Befragung"
+      },
+      {
+        "english": "came",
+        "deutsch": "simple past von to come (kommen)"
+      }
+    ],
+    "114": [
+      {
+        "english": "to welcome",
+        "deutsch": "begrüßen; willkommen heißen"
+      },
+      {
+        "english": "camp",
+        "deutsch": "das Lager; das Camp"
+      },
+      {
+        "english": "plan",
+        "deutsch": "der Plan"
+      },
+      {
+        "english": "said",
+        "deutsch": "simple past von to say (sagen)"
+      },
+      {
+        "english": "prison",
+        "deutsch": "das Gefängnis"
+      },
+      {
+        "english": "took",
+        "deutsch": "simple past von to take (nehmen)"
+      },
+      {
+        "english": "apple",
+        "deutsch": "der Apfel"
+      },
+      {
+        "english": "to free",
+        "deutsch": "befreien"
+      },
+      {
+        "english": "to carry",
+        "deutsch": "tragen; befördern"
+      },
+      {
+        "english": "job",
+        "deutsch": "die Aufgabe; die Tätigkeit"
+      },
+      {
+        "english": "forest",
+        "deutsch": "der Wald"
+      },
+      {
+        "english": "sword",
+        "deutsch": "das Schwert"
+      },
+      {
+        "english": "someone",
+        "deutsch": "jemand"
+      },
+      {
+        "english": "ran",
+        "deutsch": "simple past von to run (laufen; rennen)"
+      },
+      {
+        "english": "surprised",
+        "deutsch": "überrascht"
+      },
+      {
+        "english": "to jump",
+        "deutsch": "springen"
+      },
+      {
+        "english": "onto",
+        "deutsch": "hinauf … auf"
+      },
+      {
+        "english": "horse",
+        "deutsch": "das Pferd"
+      },
+      {
+        "english": "rode",
+        "deutsch": "simple past von to ride (reiten; fahren)"
+      },
+      {
+        "english": "to join",
+        "deutsch": "sich anschließen"
+      }
+    ],
+    "122": [
+      {
+        "english": "out and about",
+        "deutsch": "unterwegs"
+      }
+    ],
+    "123": [
+      {
+        "english": "outdoor",
+        "deutsch": "Outdoor -Freiluft; -"
+      },
+      {
+        "english": "tennis",
+        "deutsch": "das Tennis"
+      },
+      {
+        "english": "whole",
+        "deutsch": "ganz"
+      },
+      {
+        "english": "skate park",
+        "deutsch": "der Skatepark"
+      },
+      {
+        "english": "skating",
+        "deutsch": "das Skateboardfahren; das Inlineskaten; das Schlittschuhlaufen"
+      },
+      {
+        "english": "free",
+        "deutsch": "kostenlos; frei"
+      },
+      {
+        "english": "mile",
+        "deutsch": "die Meile"
+      },
+      {
+        "english": "farm",
+        "deutsch": "der Bauernhof"
+      },
+      {
+        "english": "cave",
+        "deutsch": "die Höhle"
+      },
+      {
+        "english": "spooky",
+        "deutsch": "gespenstisch"
+      },
+      {
+        "english": "adventure",
+        "deutsch": "das Abenteuer"
+      },
+      {
+        "english": "exciting",
+        "deutsch": "spannend; aufregend"
+      },
+      {
+        "english": "to get fit",
+        "deutsch": "fit werden"
+      },
+      {
+        "english": "lake",
+        "deutsch": "der See"
+      },
+      {
+        "english": "kayaking",
+        "deutsch": "das Kajakfahren"
+      },
+      {
+        "english": "relaxing",
+        "deutsch": "entspannend; erholsam"
+      }
+    ],
+    "124": [
+      {
+        "english": "week",
+        "deutsch": "die Woche"
+      },
+      {
+        "english": "to choose, chose",
+        "deutsch": "auswählen; wählen"
+      },
+      {
+        "english": "many",
+        "deutsch": "viele"
+      },
+      {
+        "english": "climbing wall",
+        "deutsch": "die Kletterwand"
+      },
+      {
+        "english": "organic",
+        "deutsch": "Bio-; organisch"
+      },
+      {
+        "english": "to care (for)",
+        "deutsch": "sich kümmern (um)"
+      },
+      {
+        "english": "to collect",
+        "deutsch": "einsammeln; sammeln"
+      },
+      {
+        "english": "egg",
+        "deutsch": "das Ei"
+      },
+      {
+        "english": "to milk",
+        "deutsch": "melken"
+      },
+      {
+        "english": "cow",
+        "deutsch": "die Kuh"
+      },
+      {
+        "english": "to drink, drank",
+        "deutsch": "trinken"
+      },
+      {
+        "english": "any",
+        "deutsch": "irgendein; etwas; irgendwas"
+      },
+      {
+        "english": "milk",
+        "deutsch": "die Milch"
+      },
+      {
+        "english": "made",
+        "deutsch": "simple past von to make (machen)"
+      },
+      {
+        "english": "yoghurt",
+        "deutsch": "der Joghurt"
+      },
+      {
+        "english": "excited",
+        "deutsch": "aufgeregt; begeistert"
+      },
+      {
+        "english": "to be afraid",
+        "deutsch": "Angst haben; sich fürchten"
+      },
+      {
+        "english": "upset",
+        "deutsch": "traurig; aufgebracht; aufgeregt; bestürzt"
+      },
+      {
+        "english": "level",
+        "deutsch": "das Level; das Niveau; die Höhe; die Stufe"
+      },
+      {
+        "english": "slow",
+        "deutsch": "langsam"
+      },
+      {
+        "english": "unhappy",
+        "deutsch": "unglücklich; traurig"
+      },
+      {
+        "english": "jeans",
+        "deutsch": "die Jeans"
+      },
+      {
+        "english": "dirty",
+        "deutsch": "dreckig; schmutzig"
+      }
+    ],
+    "125": [
+      {
+        "english": "clean",
+        "deutsch": "sauber"
+      },
+      {
+        "english": "dangerous",
+        "deutsch": "gefährlich"
+      },
+      {
+        "english": "fast",
+        "deutsch": "schnell"
+      },
+      {
+        "english": "scared",
+        "deutsch": "verängstigt"
+      },
+      {
+        "english": "group",
+        "deutsch": "die Gruppe"
+      },
+      {
+        "english": "sad",
+        "deutsch": "traurig"
+      },
+      {
+        "english": "pleased",
+        "deutsch": "froh; erfreut; zufrieden"
+      },
+      {
+        "english": "down",
+        "deutsch": "hinunter; herunter; entlang"
+      }
+    ],
+    "126": [
+      {
+        "english": "basketball",
+        "deutsch": "der Basketball"
+      }
+    ],
+    "129": [
+      {
+        "english": "criminal",
+        "deutsch": "der Kriminelle / die Kriminelle; der Verbrecher / die Verbrecherin"
+      },
+      {
+        "english": "jewellery",
+        "deutsch": "der Schmuck"
+      },
+      {
+        "english": "gold",
+        "deutsch": "das Gold"
+      },
+      {
+        "english": "true",
+        "deutsch": "wahr"
+      }
+    ],
+    "130": [
+      {
+        "english": "would like",
+        "deutsch": "würde(n) gern; hätte(n) gern"
+      },
+      {
+        "english": "salad",
+        "deutsch": "der Salat"
+      },
+      {
+        "english": "ham",
+        "deutsch": "der Schinken"
+      },
+      {
+        "english": "vegetable",
+        "deutsch": "das Gemüse"
+      },
+      {
+        "english": "meat",
+        "deutsch": "das Fleisch"
+      },
+      {
+        "english": "fruit",
+        "deutsch": "die Frucht; das Obst"
+      },
+      {
+        "english": "drink",
+        "deutsch": "das Getränk"
+      },
+      {
+        "english": "rice",
+        "deutsch": "der Reis"
+      },
+      {
+        "english": "crisp",
+        "deutsch": "der Kartoffelchip"
+      },
+      {
+        "english": "assistant",
+        "deutsch": "der Verkäufer / die Verkäuferin"
+      },
+      {
+        "english": "I’d like (to) … (= I would like to)",
+        "deutsch": "Ich möchte gerne …; Ich hätte gerne …; Ich würde gerne …"
+      },
+      {
+        "english": "cheese",
+        "deutsch": "der Käse"
+      },
+      {
+        "english": "tomato, tomatoes",
+        "deutsch": "die Tomate, die Tomaten"
+      },
+      {
+        "english": "butter",
+        "deutsch": "die Butter"
+      },
+      {
+        "english": "mayonnaise (mayo)",
+        "deutsch": "die Mayonnaise"
+      },
+      {
+        "english": "cucumber",
+        "deutsch": "die Gurke"
+      },
+      {
+        "english": "pepper",
+        "deutsch": "der Paprika; die Paprikaschote; der Pfeffer"
+      },
+      {
+        "english": "anything",
+        "deutsch": "irgendetwas"
+      },
+      {
+        "english": "bottle",
+        "deutsch": "die Flasche"
+      },
+      {
+        "english": "lemonade",
+        "deutsch": "die Limonade"
+      },
+      {
+        "english": "Anything else?",
+        "deutsch": "Darf es sonst noch etwas sein?"
+      },
+      {
+        "english": "banana",
+        "deutsch": "die Banane"
+      },
+      {
+        "english": "allergic to",
+        "deutsch": "allergisch gegen"
+      },
+      {
+        "english": "bar",
+        "deutsch": "die Tafel; der Riegel; die Stange"
+      },
+      {
+        "english": "orange",
+        "deutsch": "die Orange"
+      },
+      {
+        "english": "How much (is/are) …?",
+        "deutsch": "Wie viel (kostet/kosten) …?"
+      },
+      {
+        "english": "That’s £9.10.",
+        "deutsch": "Das macht neun Pfund und zehn Pence."
+      },
+      {
+        "english": "to pay, paid",
+        "deutsch": "bezahlen"
+      },
+      {
+        "english": "separately",
+        "deutsch": "getrennt; separat; verschieden"
+      },
+      {
+        "english": "change",
+        "deutsch": "das Wechselgeld; das Restgeld; das Münzgeld"
+      }
+    ],
+    "131": [
+      {
+        "english": "bread",
+        "deutsch": "das Brot"
+      },
+      {
+        "english": "pasta",
+        "deutsch": "die Nudeln; die Pasta"
+      },
+      {
+        "english": "cola",
+        "deutsch": "die Cola"
+      },
+      {
+        "english": "chips",
+        "deutsch": "die Pommes frites"
+      },
+      {
+        "english": "fresh",
+        "deutsch": "frisch"
+      },
+      {
+        "english": "spicy",
+        "deutsch": "pikant; würzig"
+      },
+      {
+        "english": "fizzy",
+        "deutsch": "sprudelnd"
+      },
+      {
+        "english": "sweet",
+        "deutsch": "süß"
+      },
+      {
+        "english": "sour",
+        "deutsch": "sauer"
+      },
+      {
+        "english": "salty",
+        "deutsch": "salzig"
+      },
+      {
+        "english": "tasty",
+        "deutsch": "lecker; schmackhaft"
+      }
+    ],
+    "132": [
+      {
+        "english": "jar",
+        "deutsch": "das Glas"
+      },
+      {
+        "english": "can",
+        "deutsch": "die Dose"
+      },
+      {
+        "english": "carton",
+        "deutsch": "der Karton"
+      },
+      {
+        "english": "tube",
+        "deutsch": "die Tube; der Schlauch; das Rohr"
+      },
+      {
+        "english": "tub",
+        "deutsch": "der Becher"
+      }
+    ],
+    "135": [
+      {
+        "english": "mango",
+        "deutsch": "die Mango"
+      },
+      {
+        "english": "cookie (AE)",
+        "deutsch": "der Keks"
+      },
+      {
+        "english": "heavy cream (AE)",
+        "deutsch": "Sahne mit sehr hohem Fettgehalt"
+      },
+      {
+        "english": "cream cheese",
+        "deutsch": "der Frischkäse"
+      }
+    ],
+    "136": [
+      {
+        "english": "Britain",
+        "deutsch": "Großbritannien"
+      },
+      {
+        "english": "sea",
+        "deutsch": "das Meer"
+      },
+      {
+        "english": "past",
+        "deutsch": "die Vergangenheit"
+      },
+      {
+        "english": "to get there",
+        "deutsch": "hinkommen"
+      },
+      {
+        "english": "sailing",
+        "deutsch": "das Segeln"
+      },
+      {
+        "english": "the Romans",
+        "deutsch": "die Römer"
+      },
+      {
+        "english": "over",
+        "deutsch": "über"
+      },
+      {
+        "english": "British",
+        "deutsch": "britisch"
+      },
+      {
+        "english": "to explore",
+        "deutsch": "erkunden; erforschen"
+      },
+      {
+        "english": "to become, became",
+        "deutsch": "werden"
+      },
+      {
+        "english": "rich",
+        "deutsch": "reich"
+      },
+      {
+        "english": "to sail",
+        "deutsch": "segeln"
+      },
+      {
+        "english": "world",
+        "deutsch": "die Welt; die Erde"
+      },
+      {
+        "english": "country",
+        "deutsch": "das Land; die ländliche Gegend"
+      },
+      {
+        "english": "to begin, began",
+        "deutsch": "beginnen; anfangen"
+      },
+      {
+        "english": "seaside",
+        "deutsch": "Küsten-; die Küste; die Meeresküste"
+      },
+      {
+        "english": "found",
+        "deutsch": "simple past von to find (finden)"
+      },
+      {
+        "english": "seawater",
+        "deutsch": "das Meerwasser"
+      },
+      {
+        "english": "king",
+        "deutsch": "der König"
+      },
+      {
+        "english": "to build, built",
+        "deutsch": "bauen"
+      },
+      {
+        "english": "promenade",
+        "deutsch": "die Promenade"
+      },
+      {
+        "english": "pier",
+        "deutsch": "der Pier; der Landungssteg"
+      },
+      {
+        "english": "view",
+        "deutsch": "die Aussicht; die Sicht; der Ausblick; der Blick"
+      },
+      {
+        "english": "Spain",
+        "deutsch": "Spanien"
+      },
+      {
+        "english": "Portugal",
+        "deutsch": "Portugal"
+      },
+      {
+        "english": "brought",
+        "deutsch": "simple past von to bring (bringen; mitbringen)"
+      },
+      {
+        "english": "to come",
+        "deutsch": "hier: geben; erhältlich sein"
+      },
+      {
+        "english": "newspaper",
+        "deutsch": "die Zeitung"
+      },
+      {
+        "english": "paper",
+        "deutsch": "das Papier"
+      },
+      {
+        "english": "salt",
+        "deutsch": "das Salz"
+      },
+      {
+        "english": "vinegar",
+        "deutsch": "der Essig"
+      },
+      {
+        "english": "best",
+        "deutsch": "beste / bester / bestes"
+      },
+      {
+        "english": "coast",
+        "deutsch": "die Küste"
+      },
+      {
+        "english": "no one",
+        "deutsch": "niemand"
+      },
+      {
+        "english": "than",
+        "deutsch": "als"
+      },
+      {
+        "english": "kilometre",
+        "deutsch": "der Kilometer"
+      },
+      {
+        "english": "dolphin",
+        "deutsch": "der Delfin"
+      },
+      {
+        "english": "seal",
+        "deutsch": "der Seehund; die Robbe"
+      },
+      {
+        "english": "to change",
+        "deutsch": "(sich) verändern; (sich) ändern"
+      },
+      {
+        "english": "wave",
+        "deutsch": "die Welle"
+      },
+      {
+        "english": "to wash",
+        "deutsch": "spülen; schwemmen"
+      },
+      {
+        "english": "away",
+        "deutsch": "weg; entfernt"
+      },
+      {
+        "english": "land",
+        "deutsch": "das Land"
+      },
+      {
+        "english": "to happen",
+        "deutsch": "passieren; geschehen"
+      },
+      {
+        "english": "up to",
+        "deutsch": "bis zu"
+      },
+      {
+        "english": "to fall, fell",
+        "deutsch": "fallen"
+      },
+      {
+        "english": "each",
+        "deutsch": "jede / jeder / jedes"
+      },
+      {
+        "english": "to move",
+        "deutsch": "versetzen; bewegen; umziehen"
+      },
+      {
+        "english": "lighthouse",
+        "deutsch": "der Leuchtturm"
+      },
+      {
+        "english": "metre",
+        "deutsch": "der Meter"
+      }
+    ],
+    "137": [
+      {
+        "english": "to name",
+        "deutsch": "benennen"
+      },
+      {
+        "english": "along",
+        "deutsch": "entlang"
+      }
+    ]
+  }
+}

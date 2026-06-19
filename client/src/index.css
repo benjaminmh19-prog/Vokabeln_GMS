@@ -1,0 +1,191 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Import Arcade Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Friendly Color Palette */
+  --primary: #FFE5A6; /* Soft Warm Yellow */
+  --primary-foreground: #3D4B9E; /* Softer Blue */
+  --secondary: #FF9DB5; /* Soft Pink */
+  --secondary-foreground: #FFF;
+  --accent: #7FD9A8; /* Soft Mint Green */
+  --accent-foreground: #3D4B9E;
+  --destructive: #F07070; /* Softer Red */
+  --destructive-foreground: #FFF;
+  --success: #7FD9A8; /* Soft Green */
+  --warning: #FFB366; /* Soft Orange */
+  --info: #3D4B9E; /* Softer Blue */
+  
+  /* Friendly Specific Colors */
+  --arcade-yellow: #FFE5A6;
+  --arcade-blue: #3D4B9E;
+  --arcade-pink: #FF9DB5;
+  --arcade-green: #7FD9A8;
+  --arcade-orange: #FFB366;
+  --arcade-red: #F07070;
+  
+  --radius: 1rem;
+  --background: #FFFBF0; /* Softer cream background */
+  --foreground: #3D4B9E; /* Softer blue text */
+  --card: #FFFFFF;
+  --card-foreground: #3D4B9E;
+  --popover: #FFFFFF;
+  --popover-foreground: #3D4B9E;
+  --muted: #F0E5D8;
+  --muted-foreground: #666;
+  --border: #E0D5C8;
+  --input: #FFFFFF;
+  --ring: #FFD93D;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #2E3192;
+  --sidebar-accent: #FFD93D;
+  --sidebar-accent-foreground: #2E3192;
+  --sidebar-border: #E0D5C8;
+  --sidebar-ring: #FFD93D;
+}
+
+.dark {
+  --background: #1a1a2e; /* Dark navy */
+  --foreground: #FFD93D; /* Yellow text on dark */
+  --card: #16213e; /* Darker navy */
+  --card-foreground: #FFD93D;
+  --popover: #16213e;
+  --popover-foreground: #FFD93D;
+  --secondary: #FF6B9D;
+  --secondary-foreground: #FFF;
+  --muted: #2E3192;
+  --muted-foreground: #FFD93D;
+  --accent: #6BCB77;
+  --accent-foreground: #2E3192;
+  --destructive: #E63946;
+  --destructive-foreground: #FFF;
+  --border: #2E3192;
+  --input: #16213e;
+  --ring: #FFD93D;
+  --sidebar: #16213e;
+  --sidebar-foreground: #FFD93D;
+  --sidebar-accent: #FF6B9D;
+  --sidebar-accent-foreground: #FFF;
+  --sidebar-border: #2E3192;
+  --sidebar-ring: #FFD93D;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Fredoka', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    font-family: 'Fredoka', sans-serif;
+  }
+  .font-mono {
+    @apply font-mono;
+  }
+  .arcade-title {
+    @apply font-mono font-bold text-2xl tracking-wider;
+  }
+  .arcade-score {
+    @apply font-mono font-bold text-3xl;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
