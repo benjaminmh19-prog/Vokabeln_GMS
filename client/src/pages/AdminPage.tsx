@@ -569,6 +569,15 @@ export default function AdminPage() {
           </Card>
         )}
 
+        {/* Teacher Dashboard */}
+        {showDashboard && (
+          <Card className="border-4 border-[#2E3192] shadow-lg overflow-hidden mb-8">
+            <div className="p-8">
+              <TeacherDashboard />
+            </div>
+          </Card>
+        )}
+
         {/* Help Section */}
         {showHelp && (
           <Card className="border-4 border-[#2E3192] shadow-lg mb-8">
