@@ -25,6 +25,7 @@ export function generateVocabularyTestPDF(options: TestOptions): void {
   const pageHeight = doc.internal.pageSize.getHeight();
   const margin = 15;
   const contentWidth = pageWidth - 2 * margin;
+  const fillInLineWidth = pageWidth / 3;
   let yPosition = margin;
 
   // Set default font
@@ -46,7 +47,7 @@ export function generateVocabularyTestPDF(options: TestOptions): void {
   }
 
   // Student info fields (to be filled in by hand)
-  yPosition = drawStudentInfoFields(doc, margin, contentWidth, yPosition);
+  yPosition = drawStudentInfoFields(doc, margin, fillInLineWidth, yPosition);
 
   // Instructions
   doc.setFontSize(11);
@@ -99,10 +100,10 @@ export function generateVocabularyTestPDF(options: TestOptions): void {
     doc.text(questionText, margin, yPosition);
     yPosition += 7;
 
-    // Answer line
+    // Answer line (1/3 page width)
     doc.setFont('Helvetica', 'normal');
     doc.setTextColor(150, 150, 150);
-    doc.line(margin + 5, yPosition, pageWidth - margin - 5, yPosition);
+    doc.line(margin + 5, yPosition, margin + 5 + fillInLineWidth, yPosition);
     yPosition += 8;
 
     // Show answer in answer key
@@ -129,13 +130,7 @@ export function generateVocabularyTestPDF(options: TestOptions): void {
   doc.line(margin, yPosition, pageWidth - margin, yPosition);
   yPosition += 8;
 
-  drawFillInField(
-    doc,
-    'Percentage:',
-    margin,
-    yPosition,
-    contentWidth - doc.getTextWidth('Percentage:') - 2
-  );
+  drawFillInField(doc, 'Percentage:', margin, yPosition, fillInLineWidth);
 
   // Answer key page (if requested)
   if (options.includeAnswerKey) {
@@ -199,7 +194,7 @@ function drawFillInField(
   label: string,
   x: number,
   y: number,
-  fieldWidth: number
+  lineWidth: number
 ): void {
   doc.setFontSize(11);
   doc.setTextColor(0, 0, 0);
@@ -208,36 +203,19 @@ function drawFillInField(
 
   const lineStart = x + doc.getTextWidth(label) + 2;
   doc.setDrawColor(0, 0, 0);
-  doc.line(lineStart, y + 1, lineStart + Math.max(fieldWidth, 20), y + 1);
+  doc.line(lineStart, y + 1, lineStart + lineWidth, y + 1);
 }
 
 function drawStudentInfoFields(
   doc: jsPDF,
   margin: number,
-  contentWidth: number,
+  lineWidth: number,
   y: number
 ): number {
-  const gap = 10;
-  const columnWidth = (contentWidth - gap) / 2;
-  const nameLabel = 'Name:';
-  const dateLabel = 'Date:';
+  drawFillInField(doc, 'Name:', margin, y, lineWidth);
+  drawFillInField(doc, 'Date:', margin, y + 8, lineWidth);
 
-  drawFillInField(
-    doc,
-    nameLabel,
-    margin,
-    y,
-    columnWidth - doc.getTextWidth(nameLabel) - 2
-  );
-  drawFillInField(
-    doc,
-    dateLabel,
-    margin + columnWidth + gap,
-    y,
-    columnWidth - doc.getTextWidth(dateLabel) - 2
-  );
-
-  return y + 12;
+  return y + 20;
 }
 
 /**
