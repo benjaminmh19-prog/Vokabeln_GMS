@@ -4,25 +4,18 @@ import { trpc } from '@/lib/trpc';
 export interface Vocabulary {
   id: string;
   collection_id: string;
-  unit: number;
+  unit: string;
   page: number;
   english: string;
   deutsch: string;
 }
 
-// Helper function to extract unit number from string like "Unit 1" or just "1"
-function parseUnit(value: any): number {
-  if (typeof value === 'number') return value;
-  if (typeof value === 'string') {
-    // Extract number from "Unit 1" or just "1"
-    const match = value.match(/\d+/);
-    return match ? parseInt(match[0], 10) : NaN;
-  }
-  return NaN;
+function normalizeUnit(value: unknown): string {
+  if (value == null) return '';
+  return String(value).trim();
 }
 
-// Helper function to parse page number
-function parsePage(value: any): number {
+function parsePage(value: unknown): number {
   if (typeof value === 'number') return value;
   if (typeof value === 'string') {
     return parseInt(value, 10);
@@ -30,12 +23,35 @@ function parsePage(value: any): number {
   return NaN;
 }
 
+/** Display label for a unit (supports "Unit 1", "1", "Zoom in", etc.) */
+export function formatUnitLabel(unit: string): string {
+  const trimmed = unit.trim();
+  if (/^unit\s+\d+$/i.test(trimmed)) return trimmed;
+  if (/^\d+$/.test(trimmed)) return `Unit ${trimmed}`;
+  return trimmed;
+}
+
+/** Sort numbered units first, then named units like "Zoom in" */
+export function sortUnits(units: string[]): string[] {
+  return [...units].sort((a, b) => {
+    const extractNum = (u: string) => {
+      const match = u.match(/(?:unit\s*)?(\d+)/i);
+      return match ? parseInt(match[1], 10) : null;
+    };
+    const numA = extractNum(a);
+    const numB = extractNum(b);
+    if (numA !== null && numB !== null) return numA - numB;
+    if (numA !== null) return -1;
+    if (numB !== null) return 1;
+    return a.localeCompare(b, 'de');
+  });
+}
+
 export function useVocabularyByCollection(collectionId?: string) {
   const [vocabulary, setVocabulary] = useState<Vocabulary[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Query ALL vocabulary using public tRPC endpoint
   const vocabQuery = trpc.admin_vocabulary.list.useQuery();
 
   useEffect(() => {
@@ -52,18 +68,17 @@ export function useVocabularyByCollection(collectionId?: string) {
       setIsLoading(false);
       setVocabulary([]);
     } else if (vocabQuery.data) {
-      // Transform DB data to Vocabulary interface and filter by collection
       const transformed = vocabQuery.data
-        .filter(v => v.collection_id === collectionId)
-        .map(v => ({
+        .filter((v) => v.collection_id === collectionId)
+        .map((v) => ({
           id: v.id,
           collection_id: v.collection_id,
-          unit: parseUnit(v.unit),
+          unit: normalizeUnit(v.unit),
           page: parsePage(v.page),
           english: v.english,
           deutsch: v.deutsch,
         }))
-        .filter(v => !isNaN(v.unit) && !isNaN(v.page)); // Filter out invalid entries
+        .filter((v) => v.unit && !isNaN(v.page));
 
       setVocabulary(transformed);
       setError(null);
@@ -71,25 +86,22 @@ export function useVocabularyByCollection(collectionId?: string) {
     }
   }, [collectionId, vocabQuery.data, vocabQuery.isLoading, vocabQuery.error]);
 
-  // Get unique units for selected collection
-  const getUnits = (): number[] => {
+  const getUnits = (): string[] => {
     if (vocabulary.length === 0) return [];
-    const units = Array.from(new Set(vocabulary.map(v => v.unit)));
-    return units.sort((a, b) => a - b);
+    const units = Array.from(new Set(vocabulary.map((v) => v.unit)));
+    return sortUnits(units);
   };
 
-  // Get pages for a specific unit
-  const getPagesByUnit = (unit: number): number[] => {
+  const getPagesByUnit = (unit: string): number[] => {
     if (vocabulary.length === 0) return [];
     const pages = Array.from(
-      new Set(vocabulary.filter(v => v.unit === unit).map(v => v.page))
+      new Set(vocabulary.filter((v) => v.unit === unit).map((v) => v.page))
     );
     return pages.sort((a, b) => a - b);
   };
 
-  // Get vocabulary for specific page
-  const getVocabularyByPage = (unit: number, page: number): Vocabulary[] => {
-    return vocabulary.filter(v => v.unit === unit && v.page === page);
+  const getVocabularyByPage = (unit: string, page: number): Vocabulary[] => {
+    return vocabulary.filter((v) => v.unit === unit && v.page === page);
   };
 
   return {

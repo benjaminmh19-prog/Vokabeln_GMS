@@ -8,7 +8,7 @@ import { ArrowLeft, BookOpen, ChevronRight, Home, Play } from 'lucide-react';
 import { usePlayer } from '@/contexts/PlayerContext';
 import { useGame } from '@/contexts/GameContext';
 import { useCollections } from '@/hooks/useCollections';
-import { useVocabularyByCollection } from '@/hooks/useVocabularyByCollection';
+import { useVocabularyByCollection, formatUnitLabel, sortUnits } from '@/hooks/useVocabularyByCollection';
 // Types are defined inline since they're not exported from GameContext
 type GameDirection = 'en-de' | 'de-en' | 'random';
 type GameLevel = 1 | 2 | 3 | 'challenge';
@@ -32,7 +32,7 @@ export default function CollectionSelectionPage() {
   
   const [collections, setCollections] = useState<AdminCollection[]>([]);
   const [selectedCollection, setSelectedCollection] = useState<AdminCollection | null>(null);
-  const [selectedUnits, setSelectedUnits] = useState<Set<number>>(new Set());
+  const [selectedUnits, setSelectedUnits] = useState<Set<string>>(new Set());
   const [selectedPages, setSelectedPages] = useState<Set<number>>(new Set());
   const [currentStep, setCurrentStep] = useState<NavigationStep>('collections');
   const [isLoading, setIsLoading] = useState(false);
@@ -68,7 +68,7 @@ export default function CollectionSelectionPage() {
     toast.success(`${collection.name} ausgewählt!`);
   };
 
-  const handleToggleUnit = (unit: number) => {
+  const handleToggleUnit = (unit: string) => {
     const newSelectedUnits = new Set(selectedUnits);
     if (newSelectedUnits.has(unit)) {
       newSelectedUnits.delete(unit);
@@ -138,7 +138,7 @@ export default function CollectionSelectionPage() {
       // Aggregate vocabulary from all selected units and pages
       const allPageVocab: any[] = [];
       const pageArray = Array.from(selectedPages).sort((a, b) => a - b);
-      const unitsArray = Array.from(selectedUnits).sort((a, b) => a - b);
+      const unitsArray = sortUnits(Array.from(selectedUnits));
 
       for (const unit of unitsArray) {
         for (const page of pageArray) {
@@ -167,7 +167,7 @@ export default function CollectionSelectionPage() {
       localStorage.setItem('selectedPages', JSON.stringify(pageArray));
 
       startGame(direction, level, 'vocabulary', {
-        unitName: `Unit${unitsArray.length > 1 ? 's' : ''} ${unitsArray.join(', ')}`,
+        unitName: unitsArray.map(formatUnitLabel).join(', '),
         pages: pageArray.map(p => p.toString()),
       }, gameVocab);
 
@@ -294,7 +294,7 @@ export default function CollectionSelectionPage() {
                   className="mt-1"
                 />
                 <div className="flex-1 text-center">
-                  <div className="text-2xl font-bold text-[#2E3192] mb-2">Unit {unit}</div>
+                  <div className="text-2xl font-bold text-[#2E3192] mb-2">{formatUnitLabel(unit)}</div>
                   <div className="text-xs text-[#666]">
                     {getPagesByUnit(unit).length} Seiten
                   </div>
@@ -385,7 +385,7 @@ export default function CollectionSelectionPage() {
         {/* Info: Selected Units */}
         <div className="mb-4 p-3 bg-[#FFE5B4] border-2 border-[#FFD93D] rounded-lg">
           <p className="text-sm font-bold text-[#2E3192]">
-            Ausgewählte Unit{selectedUnits.size > 1 ? 's' : ''}: {Array.from(selectedUnits).sort((a, b) => a - b).join(', ')}
+            Ausgewählte Unit{selectedUnits.size > 1 ? 's' : ''}: {sortUnits(Array.from(selectedUnits)).map(formatUnitLabel).join(', ')}
           </p>
         </div>
 

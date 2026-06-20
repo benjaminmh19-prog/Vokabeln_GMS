@@ -65,18 +65,12 @@ export default function MultiplayerGamePage() {
     const units = sessionData?.session?.units || ['Unit 1'];
     const pages = sessionData?.session?.pages || ['1'];
 
-    const parseUnit = (value: string): number => {
-      const match = value.match(/\d+/);
-      return match ? parseInt(match[0], 10) : NaN;
-    };
-
     const allVocab: { id: string; english: string; deutsch: string }[] = [];
     for (const unitStr of units) {
-      const unitNum = parseUnit(unitStr);
       for (const pageStr of pages) {
         const pageNum = parseInt(pageStr, 10);
-        if (!isNaN(unitNum) && !isNaN(pageNum)) {
-          const pageVocab = getVocabularyByPage(unitNum, pageNum);
+        if (unitStr && !isNaN(pageNum)) {
+          const pageVocab = getVocabularyByPage(unitStr, pageNum);
           allVocab.push(
             ...pageVocab.map((v) => ({
               id: v.id,
