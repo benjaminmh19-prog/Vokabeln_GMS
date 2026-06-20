@@ -45,12 +45,8 @@ export function generateVocabularyTestPDF(options: TestOptions): void {
     yPosition += headerLines.length * 4 + 3;
   }
 
-  // Date
-  doc.setFontSize(10);
-  doc.setTextColor(100, 100, 100);
-  const today = new Date().toLocaleDateString('de-DE');
-  doc.text(`Datum: ${today}`, margin, yPosition);
-  yPosition += 8;
+  // Student info fields (to be filled in by hand)
+  yPosition = drawStudentInfoFields(doc, margin, contentWidth, yPosition);
 
   // Instructions
   doc.setFontSize(11);
@@ -121,6 +117,26 @@ export function generateVocabularyTestPDF(options: TestOptions): void {
     yPosition += 3;
   });
 
+  // Percentage field below test vocabulary
+  if (yPosition > pageHeight - 25) {
+    doc.addPage();
+    yPosition = margin;
+  } else {
+    yPosition += 5;
+  }
+
+  doc.setDrawColor(46, 49, 146);
+  doc.line(margin, yPosition, pageWidth - margin, yPosition);
+  yPosition += 8;
+
+  drawFillInField(
+    doc,
+    'Percentage:',
+    margin,
+    yPosition,
+    contentWidth - doc.getTextWidth('Percentage:') - 2
+  );
+
   // Answer key page (if requested)
   if (options.includeAnswerKey) {
     doc.addPage();
@@ -176,6 +192,52 @@ export function generateVocabularyTestPDF(options: TestOptions): void {
   // Save PDF
   const filename = `Vokabeltest_${new Date().toISOString().split('T')[0]}.pdf`;
   doc.save(filename);
+}
+
+function drawFillInField(
+  doc: jsPDF,
+  label: string,
+  x: number,
+  y: number,
+  fieldWidth: number
+): void {
+  doc.setFontSize(11);
+  doc.setTextColor(0, 0, 0);
+  doc.setFont('Helvetica', 'normal');
+  doc.text(label, x, y);
+
+  const lineStart = x + doc.getTextWidth(label) + 2;
+  doc.setDrawColor(0, 0, 0);
+  doc.line(lineStart, y + 1, lineStart + Math.max(fieldWidth, 20), y + 1);
+}
+
+function drawStudentInfoFields(
+  doc: jsPDF,
+  margin: number,
+  contentWidth: number,
+  y: number
+): number {
+  const gap = 10;
+  const columnWidth = (contentWidth - gap) / 2;
+  const nameLabel = 'Name:';
+  const dateLabel = 'Date:';
+
+  drawFillInField(
+    doc,
+    nameLabel,
+    margin,
+    y,
+    columnWidth - doc.getTextWidth(nameLabel) - 2
+  );
+  drawFillInField(
+    doc,
+    dateLabel,
+    margin + columnWidth + gap,
+    y,
+    columnWidth - doc.getTextWidth(dateLabel) - 2
+  );
+
+  return y + 12;
 }
 
 /**
