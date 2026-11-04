@@ -1,10 +1,34 @@
 import { jsPDF } from 'jspdf';
 import { Vocabulary } from '@/types/game';
 
+export type TestType =
+  | 'english-to-german'
+  | 'german-to-english'
+  | 'mixed'
+  | 'sentences-de-en'
+  | 'sentences-en-de';
+
+/** Satz-Tests: Die Einträge sind Sätze (english = englischer Satz, deutsch = deutscher Satz). */
+export function isSentenceTest(testType: TestType): boolean {
+  return testType === 'sentences-de-en' || testType === 'sentences-en-de';
+}
+
+/** Frage und Lösung für Eintrag Nummer `index` (0-basiert). */
+export function buildQuestionAnswer(
+  testType: TestType,
+  vocab: { english: string; deutsch: string },
+  index: number,
+): { question: string; answer: string } {
+  const enToDe = testType === 'english-to-german' || testType === 'sentences-en-de' || (testType === 'mixed' && index % 2 === 0);
+  return enToDe
+    ? { question: vocab.english, answer: vocab.deutsch }
+    : { question: vocab.deutsch, answer: vocab.english };
+}
+
 export interface TestOptions {
   title: string;
   instructions: string;
-  testType: 'english-to-german' | 'german-to-english' | 'mixed';
+  testType: TestType;
   includeAnswerKey: boolean;
   vocabularyList: Vocabulary[];
   preserveOrder?: boolean; // If true, don't shuffle the vocabulary list
@@ -77,33 +101,27 @@ export function generateVocabularyTestPDF(options: TestOptions): void {
     doc.setTextColor(0, 0, 0);
     doc.setFont('Helvetica', 'bold');
 
-    let questionText = '';
-    let answerText = '';
+    const qa = buildQuestionAnswer(options.testType, vocab, index);
+    const answerText = qa.answer;
+    const sentenceMode = isSentenceTest(options.testType);
+    // Sätze können länger sein als eine Zeile: umbrechen und volle Breite für die Antwort
+    const questionLines: string[] = doc.splitTextToSize(`${index + 1}. ${qa.question}`, contentWidth);
 
-    if (options.testType === 'english-to-german') {
-      questionText = `${index + 1}. ${vocab.english}`;
-      answerText = vocab.deutsch;
-    } else if (options.testType === 'german-to-english') {
-      questionText = `${index + 1}. ${vocab.deutsch}`;
-      answerText = vocab.english;
-    } else {
-      // Mixed: alternate between EN->DE and DE->EN
-      if (index % 2 === 0) {
-        questionText = `${index + 1}. ${vocab.english}`;
-        answerText = vocab.deutsch;
-      } else {
-        questionText = `${index + 1}. ${vocab.deutsch}`;
-        answerText = vocab.english;
-      }
+    // Platz für Frage + Antwortlinie sicherstellen
+    if (yPosition + questionLines.length * 5.5 + 16 > pageHeight - 15) {
+      doc.addPage();
+      yPosition = margin;
     }
 
-    doc.text(questionText, margin, yPosition);
-    yPosition += 7;
+    doc.text(questionLines, margin, yPosition);
+    yPosition += questionLines.length * 5.5 + 1.5;
 
-    // Answer line (1/3 page width)
+    // Answer line (1/3 page width for words, full width for sentences)
     doc.setFont('Helvetica', 'normal');
     doc.setTextColor(150, 150, 150);
-    doc.line(margin + 5, yPosition, margin + 5 + fillInLineWidth, yPosition);
+    const lineLength = sentenceMode ? contentWidth - 5 : fillInLineWidth;
+    yPosition += sentenceMode ? 4 : 0;
+    doc.line(margin + 5, yPosition, margin + 5 + lineLength, yPosition);
     yPosition += 8;
 
     // Show answer in answer key
@@ -160,32 +178,20 @@ export function generateVocabularyTestPDF(options: TestOptions): void {
       doc.setTextColor(0, 0, 0);
       doc.setFont('Helvetica', 'normal');
 
-      let questionText = '';
-      let answerText = '';
-
-      if (options.testType === 'english-to-german') {
-        questionText = `${index + 1}. ${vocab.english}`;
-        answerText = vocab.deutsch;
-      } else if (options.testType === 'german-to-english') {
-        questionText = `${index + 1}. ${vocab.deutsch}`;
-        answerText = vocab.english;
-      } else {
-        if (index % 2 === 0) {
-          questionText = `${index + 1}. ${vocab.english}`;
-          answerText = vocab.deutsch;
-        } else {
-          questionText = `${index + 1}. ${vocab.deutsch}`;
-          answerText = vocab.english;
-        }
+      const qa = buildQuestionAnswer(options.testType, vocab, index);
+      const keyLines: string[] = doc.splitTextToSize(`${index + 1}. ${qa.question} → ${qa.answer}`, contentWidth);
+      if (yPosition + keyLines.length * 5 > pageHeight - 15) {
+        doc.addPage();
+        yPosition = margin;
       }
+      doc.text(keyLines, margin, yPosition);
+      yPosition += keyLines.length * 5 + 3;
 
-      doc.text(`${questionText} → ${answerText}`, margin, yPosition);
-      yPosition += 8;
     });
   }
 
   // Save PDF
-  const filename = `Vokabeltest_${new Date().toISOString().split('T')[0]}.pdf`;
+  const filename = `${isSentenceTest(options.testType) ? 'Satztest' : 'Vokabeltest'}_${new Date().toISOString().split('T')[0]}.pdf`;
   doc.save(filename);
 }
 
@@ -233,8 +239,10 @@ function shuffleArray<T>(array: T[]): T[] {
 /**
  * Generate default instructions based on test type
  */
-export function getDefaultInstructions(testType: 'english-to-german' | 'german-to-english' | 'mixed'): string {
+export function getDefaultInstructions(testType: TestType): string {
   const instructions: Record<string, string> = {
+    'sentences-de-en': 'Übersetze die deutschen Sätze ins Englische. Schreibe jeden Satz vollständig auf die Linie.',
+    'sentences-en-de': 'Übersetze die englischen Sätze ins Deutsche. Schreibe jeden Satz vollständig auf die Linie.',
     'english-to-german': 'Übersetze die englischen Wörter ins Deutsche. Schreibe deine Antwort auf die Linie.',
     'german-to-english': 'Übersetze die deutschen Wörter ins Englische. Schreibe deine Antwort auf die Linie.',
     'mixed': 'Übersetze die Wörter. Manche sind auf Englisch, manche auf Deutsch. Schreibe deine Antwort auf die Linie.',

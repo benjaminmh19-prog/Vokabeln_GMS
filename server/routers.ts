@@ -2,7 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
-import { createPlayer, getPlayerByUsername, deletePlayer, getAllPlayers, getAllVocabulary, getVocabularyById, createVocabulary, updateVocabulary, deleteVocabulary, getAllCollections, getCollectionById, createCollection, updateCollection, deleteCollection, createMultiplayerSession, getMultiplayerSessionById, getMultiplayerSessionByCode, updateMultiplayerSession, addSessionParticipant, getSessionParticipants, updateSessionParticipant } from "./db";
+import { createPlayer, getPlayerByUsername, deletePlayer, getAllPlayers, getAllVocabulary, getAllSentences, getVocabularyById, createVocabulary, updateVocabulary, deleteVocabulary, getAllCollections, getCollectionById, createCollection, updateCollection, deleteCollection, createMultiplayerSession, getMultiplayerSessionById, getMultiplayerSessionByCode, updateMultiplayerSession, addSessionParticipant, getSessionParticipants, updateSessionParticipant } from "./db";
 import { z } from "zod";
 import { nanoid } from "nanoid";
 import bcryptjs from "bcryptjs";
@@ -144,6 +144,13 @@ export const appRouter = router({
           throw new Error(`Fehler beim Loeschen der Vokabel: ${error}`);
         }
       }),
+  }),
+
+  // Beispielsätze: nur lesend. Der Import läuft über scripts/import-sentences.ts.
+  vocab_sentences: router({
+    list: publicProcedure.query(async () => {
+      return await getAllSentences();
+    }),
   }),
 
   admin_collections: router({

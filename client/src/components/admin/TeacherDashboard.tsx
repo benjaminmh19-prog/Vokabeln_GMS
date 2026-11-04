@@ -272,6 +272,8 @@ export default function TeacherDashboard() {
                   'english-to-german': 'EN → DE',
                   'german-to-english': 'DE → EN',
                   mixed: 'Gemischt',
+                  'sentences-de-en': 'Sätze DE → EN',
+                  'sentences-en-de': 'Sätze EN → DE',
                 };
                 return (
                   <div key={type} className="flex items-center justify-between">

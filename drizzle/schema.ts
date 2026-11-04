@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm";
 import { integer, pgEnum, pgTable, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 // 1. Enums VOR den Tabellen definieren
@@ -71,6 +72,22 @@ export const admin_vocabulary = pgTable("admin_vocabulary", {
 
 export type AdminVocabulary = typeof admin_vocabulary.$inferSelect;
 export type InsertAdminVocabulary = typeof admin_vocabulary.$inferInsert;
+
+/**
+ * Beispielsätze zu Vokabeln (Spiel "Sätze bilden" und Satz-Vokabeltest).
+ * Mehrere Sätze pro Vokabel sind möglich. `alt_en` enthält weitere richtige englische Fassungen.
+ */
+export const vocab_sentences = pgTable("vocab_sentences", {
+  id: varchar("id", { length: 36 }).primaryKey(),
+  vocabulary_id: varchar("vocabulary_id", { length: 36 }).notNull(),
+  sentence_en: text("sentence_en").notNull(),
+  sentence_de: text("sentence_de").notNull(),
+  alt_en: text("alt_en").array().notNull().default(sql`'{}'::text[]`),
+  created_at: timestamp("created_at").defaultNow().notNull(),
+});
+
+export type VocabSentence = typeof vocab_sentences.$inferSelect;
+export type InsertVocabSentence = typeof vocab_sentences.$inferInsert;
 
 /**
  * Multiplayer game sessions

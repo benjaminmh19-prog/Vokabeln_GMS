@@ -107,6 +107,8 @@ export default function TestHistoryPanel() {
       'english-to-german': 'EN → DE',
       'german-to-english': 'DE → EN',
       mixed: 'Gemischt',
+      'sentences-de-en': 'Sätze DE → EN',
+      'sentences-en-de': 'Sätze EN → DE',
     };
     return labels[type] || type;
   };

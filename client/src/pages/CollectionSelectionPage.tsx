@@ -9,9 +9,19 @@ import { usePlayer } from '@/contexts/PlayerContext';
 import { useGame } from '@/contexts/GameContext';
 import { useCollections } from '@/hooks/useCollections';
 import { useVocabularyByCollection, formatUnitLabel, sortUnits } from '@/hooks/useVocabularyByCollection';
+import { MINI_GAME_TITLES, saveMiniGameSession, type MiniGameType } from '@/lib/miniGameSession';
 // Types are defined inline since they're not exported from GameContext
 type GameDirection = 'en-de' | 'de-en' | 'random';
 type GameLevel = 1 | 2 | 3 | 'challenge';
+/** 'trainer' ist das bisherige Vokabelspiel mit Leveln, die anderen sind die Mini-Spiele. */
+type GameKind = 'trainer' | MiniGameType;
+
+const GAME_KINDS: { kind: GameKind; label: string }[] = [
+  { kind: 'trainer', label: 'Vokabeltrainer' },
+  { kind: 'scramble', label: MINI_GAME_TITLES.scramble },
+  { kind: 'sentences', label: MINI_GAME_TITLES.sentences },
+  { kind: 'memory', label: MINI_GAME_TITLES.memory },
+];
 
 interface AdminCollection {
   id?: string;
@@ -38,6 +48,7 @@ export default function CollectionSelectionPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [direction, setDirection] = useState<GameDirection>('en-de');
   const [level, setLevel] = useState<GameLevel>(1);
+  const [gameKind, setGameKind] = useState<GameKind>('trainer');
 
   // Load vocabulary for selected collection
   const { getUnits, getPagesByUnit, getVocabularyByPage } = useVocabularyByCollection(
@@ -166,8 +177,20 @@ export default function CollectionSelectionPage() {
       localStorage.setItem('selectedUnits', JSON.stringify(unitsArray));
       localStorage.setItem('selectedPages', JSON.stringify(pageArray));
 
+      const unitLabel = unitsArray.map(formatUnitLabel).join(', ');
+
+      if (gameKind !== 'trainer') {
+        saveMiniGameSession({
+          type: gameKind,
+          label: `${selectedCollection?.name ?? ''} · ${unitLabel} · Seite ${pageArray.join(', ')}`,
+          vocab: gameVocab.map(v => ({ id: v.id, english: v.english, deutsch: v.deutsch })),
+        });
+        navigate('/minigame');
+        return;
+      }
+
       startGame(direction, level, 'vocabulary', {
-        unitName: unitsArray.map(formatUnitLabel).join(', '),
+        unitName: unitLabel,
         pages: pageArray.map(p => p.toString()),
       }, gameVocab);
 
@@ -339,7 +362,30 @@ export default function CollectionSelectionPage() {
 
     return (
       <div>
-        {/* Game Settings: Direction and Level */}
+        {/* Spielart */}
+        <div className="mb-6">
+          <label className="block text-sm font-bold text-[#2E3192] mb-2">Spielart:</label>
+          <div className="grid grid-cols-2 gap-2">
+            {GAME_KINDS.map(({ kind, label }) => (
+              <button
+                key={kind}
+                type="button"
+                aria-pressed={gameKind === kind}
+                onClick={() => setGameKind(kind)}
+                className={`p-2 rounded-lg font-bold border-2 transition-all ${
+                  gameKind === kind
+                    ? 'bg-[#2E3192] text-[#FFFBF0] border-[#2E3192]'
+                    : 'bg-[#F0E5D8] text-[#2E3192] border-[#E0D5C8]'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Game Settings: Direction and Level (nur Vokabeltrainer) */}
+        {gameKind === 'trainer' && (
         <div className="mb-6 grid grid-cols-2 gap-4">
           {/* Translation Direction */}
           <div>
@@ -381,6 +427,7 @@ export default function CollectionSelectionPage() {
             </div>
           </div>
         </div>
+        )}
 
         {/* Info: Selected Units */}
         <div className="mb-4 p-3 bg-[#FFE5B4] border-2 border-[#FFD93D] rounded-lg">

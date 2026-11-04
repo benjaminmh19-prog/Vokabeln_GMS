@@ -8,7 +8,9 @@ import { toast } from 'sonner';
 import { FileDown, Filter, Shuffle, X, AlertCircle } from 'lucide-react';
 import { Vocabulary } from '@/types/game';
 import { AdminVocabulary } from '@/contexts/AdminContext';
-import { generateVocabularyTestPDF, getDefaultInstructions } from '@/lib/pdfTestGenerator';
+import { generateVocabularyTestPDF, getDefaultInstructions, isSentenceTest, type TestType } from '@/lib/pdfTestGenerator';
+import { useSentences } from '@/hooks/useSentences';
+import { pickSentences } from '@shared/sentences';
 import { supabase } from '@/lib/supabase';
 import TestEditorDialog from './TestEditorDialog';
 
@@ -19,9 +21,8 @@ interface TestGeneratorPanelProps {
 
 export default function TestGeneratorPanel({ vocabularyList, collections = [] }: TestGeneratorPanelProps) {
   const [testTitle, setTestTitle] = useState('Vokabeltest');
-  const [testType, setTestType] = useState<'english-to-german' | 'german-to-english' | 'mixed'>(
-    'english-to-german'
-  );
+  const [testType, setTestType] = useState<TestType>('english-to-german');
+  const { sentences: allSentences } = useSentences();
   const [includeAnswerKey, setIncludeAnswerKey] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState<string>(() => {
     if (collections && collections.length > 0) {
@@ -153,6 +154,18 @@ export default function TestGeneratorPanel({ vocabularyList, collections = [] }:
     });
   }, [convertedVocabulary, selectedUnits, selectedPages]);
 
+  // Verfügbare Sätze für die Auswahl (höchstens ein Satz je Vokabel)
+  const availableSentences = useMemo(() => {
+    const ids = new Set(filteredVocabulary.map((v) => v.id).filter(Boolean) as string[]);
+    return allSentences.filter((s) => ids.has(s.vocabulary_id));
+  }, [allSentences, filteredVocabulary]);
+  const sentenceVocabCount = useMemo(
+    () => new Set(availableSentences.map((s) => s.vocabulary_id)).size,
+    [availableSentences],
+  );
+  const sentenceMode = isSentenceTest(testType);
+  const availableCount = sentenceMode ? sentenceVocabCount : filteredVocabulary.length;
+
   // Shuffle array (Fisher-Yates algorithm)
   const shuffleArray = <T,>(array: T[]): T[] => {
     const shuffled = [...array];
@@ -172,14 +185,14 @@ export default function TestGeneratorPanel({ vocabularyList, collections = [] }:
       return;
     }
 
-    if (filteredVocabulary.length === 0) {
-      toast.error('Keine Vokabeln in dieser Auswahl verfügbar');
+    if (availableCount === 0) {
+      toast.error(sentenceMode ? 'Keine Sätze in dieser Auswahl verfügbar' : 'Keine Vokabeln in dieser Auswahl verfügbar');
       return;
     }
 
-    if (numWords > filteredVocabulary.length) {
+    if (numWords > availableCount) {
       toast.error(
-        `Nur ${filteredVocabulary.length} Vokabeln verfügbar, aber ${numWords} angefordert`
+        `Nur ${availableCount} ${sentenceMode ? 'Sätze' : 'Vokabeln'} verfügbar, aber ${numWords} angefordert`
       );
       return;
     }
@@ -187,9 +200,14 @@ export default function TestGeneratorPanel({ vocabularyList, collections = [] }:
     setIsGenerating(true);
 
     try {
-      // Shuffle and select random vocabulary
-      const shuffled = shuffleArray(filteredVocabulary);
-      const selected = shuffled.slice(0, numWords);
+      // Shuffle and select random vocabulary (bei Satztests: Sätze, als english/deutsch-Paar)
+      const selected: Vocabulary[] = sentenceMode
+        ? pickSentences(
+            availableSentences,
+            new Set(availableSentences.map((s) => s.vocabulary_id)),
+            numWords,
+          ).map((s) => ({ id: s.id, english: s.sentence_en, deutsch: s.sentence_de }))
+        : shuffleArray(filteredVocabulary).slice(0, numWords);
 
       // Open editor for test
       setDraftVocabulary(selected);
@@ -209,7 +227,7 @@ export default function TestGeneratorPanel({ vocabularyList, collections = [] }:
       await saveTestToHistory(1);
 
       toast.success(
-        `Test mit ${draftVocabulary.length} Vokabeln erstellt!`
+        `Test mit ${draftVocabulary.length} ${sentenceMode ? 'Sätzen' : 'Vokabeln'} erstellt!`
       );
     } catch (error) {
       console.error('Error saving test history:', error);
@@ -254,12 +272,14 @@ export default function TestGeneratorPanel({ vocabularyList, collections = [] }:
                   <SelectItem value="english-to-german">EN → DE</SelectItem>
                   <SelectItem value="german-to-english">DE → EN</SelectItem>
                   <SelectItem value="mixed">🎲 Gemischt</SelectItem>
+                  <SelectItem value="sentences-de-en">Sätze DE → EN</SelectItem>
+                  <SelectItem value="sentences-en-de">Sätze EN → DE</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div>
-              <Label className="font-bold text-[#2E3192]">Anzahl Wörter</Label>
+              <Label className="font-bold text-[#2E3192]">{isSentenceTest(testType) ? 'Anzahl Sätze' : 'Anzahl Wörter'}</Label>
               <Input
                 type="number"
                 value={numberOfWords}
@@ -406,14 +426,15 @@ export default function TestGeneratorPanel({ vocabularyList, collections = [] }:
             <strong>Sammlung:</strong> {selectedCollectionName}<br/>
             <strong>Units:</strong> {selectedUnitsInfo}<br/>
             <strong>Seiten:</strong> {selectedPages.length === 0 ? 'Alle Seiten' : `${selectedPages.join(', ')}`}<br/>
-            <strong>Vokabeln:</strong> {filteredVocabulary.length}
+            <strong>Vokabeln:</strong> {filteredVocabulary.length}<br/>
+            <strong>Vokabeln mit Satz:</strong> {sentenceVocabCount}
           </p>
         </div>
 
         {/* Generate Button */}
         <Button
           onClick={handleGenerateTest}
-          disabled={isGenerating || filteredVocabulary.length === 0}
+          disabled={isGenerating || availableCount === 0}
           className="w-full bg-gradient-to-r from-[#FF9F1C] to-[#FFD93D] hover:from-[#FF8C00] hover:to-[#FFC700] text-[#2E3192] font-bold border-2 border-[#2E3192] rounded-lg py-3 transform hover:scale-105 active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
         >
           <FileDown className="w-5 h-5" />

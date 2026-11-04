@@ -116,6 +116,13 @@ export async function deleteVocabulary(id: string) {
   return true;
 }
 
+// --- Beispielsätze ---
+export async function getAllSentences() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(schema.vocab_sentences);
+}
+
 export async function getAllCollections() {
   const db = await getDb();
   if (!db) return [];

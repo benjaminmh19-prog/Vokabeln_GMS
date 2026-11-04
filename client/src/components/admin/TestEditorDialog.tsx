@@ -4,13 +4,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '
 import { Input } from '@/components/ui/input';
 import { Trash2, ChevronUp, ChevronDown, FileDown } from 'lucide-react';
 import { Vocabulary } from '@/types/game';
-import { generateVocabularyTestPDF, getDefaultInstructions } from '@/lib/pdfTestGenerator';
+import { generateVocabularyTestPDF, getDefaultInstructions, isSentenceTest, type TestType } from '@/lib/pdfTestGenerator';
 import { toast } from 'sonner';
 
 interface TestEditorDialogProps {
   isOpen: boolean;
   testTitle: string;
-  testType: 'english-to-german' | 'german-to-english' | 'mixed';
+  testType: TestType;
   includeAnswerKey: boolean;
   vocabularyList: Vocabulary[];
   onClose: () => void;
@@ -111,7 +111,7 @@ export default function TestEditorDialog({
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-[#2E3192]">
-            📝 Vokabeltest bearbeiten
+            {isSentenceTest(testType) ? '📝 Satztest bearbeiten' : '📝 Vokabeltest bearbeiten'}
           </DialogTitle>
         </DialogHeader>
 
@@ -144,7 +144,7 @@ export default function TestEditorDialog({
           <div className="bg-[#FFF4E6] border-2 border-[#FF9F1C] rounded-lg p-4">
             <p className="font-bold text-[#2E3192]">Test: {customTitle || testTitle}</p>
             <p className="text-sm text-gray-700">
-              Vokabeln: {editableVocabulary.length} | Richtung: {testType === 'english-to-german' ? 'EN→DE' : testType === 'german-to-english' ? 'DE→EN' : 'Gemischt'}
+              {isSentenceTest(testType) ? 'Sätze' : 'Vokabeln'}: {editableVocabulary.length} | Richtung: {testType === 'english-to-german' || testType === 'sentences-en-de' ? 'EN→DE' : testType === 'german-to-english' || testType === 'sentences-de-en' ? 'DE→EN' : 'Gemischt'}
             </p>
             {headerText && <p className="text-xs text-gray-600 mt-2">Kopfzeile: {headerText}</p>}
           </div>
@@ -164,13 +164,13 @@ export default function TestEditorDialog({
                   <Input
                     value={vocab.english}
                     onChange={(e) => handleEditField(index, 'english', e.target.value)}
-                    placeholder="English"
+                    placeholder={isSentenceTest(testType) ? 'English sentence' : 'English'}
                     className="text-sm"
                   />
                   <Input
                     value={vocab.deutsch}
                     onChange={(e) => handleEditField(index, 'deutsch', e.target.value)}
-                    placeholder="Deutsch"
+                    placeholder={isSentenceTest(testType) ? 'Deutscher Satz' : 'Deutsch'}
                     className="text-sm"
                   />
                 </div>

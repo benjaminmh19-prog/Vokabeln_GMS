@@ -194,6 +194,8 @@ export function exportDashboardToPDF(stats: DashboardStats) {
       'english-to-german': 'Englisch → Deutsch',
       'german-to-english': 'Deutsch → Englisch',
       mixed: 'Gemischt',
+      'sentences-de-en': 'Sätze Deutsch → Englisch',
+      'sentences-en-de': 'Sätze Englisch → Deutsch',
     };
 
     typeData.forEach(([type, count]) => {

@@ -19,6 +19,7 @@ import AuthPage from "./pages/AuthPage";
 // Lazy load pages for better performance
 const SelectionPage = lazy(() => import("./pages/SelectionPage"));
 const GamePage = lazy(() => import("./pages/GamePage"));
+const MiniGamePage = lazy(() => import("./pages/MiniGamePage"));
 const ResultsPage = lazy(() => import("./pages/ResultsPage"));
 const PlayerSelectionPage = lazy(() => import("./pages/PlayerSelectionPage"));
 const ChallengesPage = lazy(() => import("./pages/ChallengesPage"));
@@ -59,6 +60,7 @@ function GameRouter() {
         <Route path="/players" component={PlayerSelectionPage} />
         <Route path="/selection" component={SelectionPage} />
         <Route path="/game" component={GamePage} />
+        <Route path="/minigame" component={MiniGamePage} />
         <Route path="/results" component={ResultsPage} />
         <Route path="/challenges" component={ChallengesPage} />
         <Route path="/learning-plan" component={LearningPlanPage} />
