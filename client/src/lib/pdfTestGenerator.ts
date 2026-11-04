@@ -13,6 +13,16 @@ export function isSentenceTest(testType: TestType): boolean {
   return testType === 'sentences-de-en' || testType === 'sentences-en-de';
 }
 
+/** Ist dieser Eintrag ein Satz? (Satz-Tests: immer; Wort-Tests: wenn der Eintrag als Satz markiert ist) */
+export function isSentenceItem(testType: TestType, vocab: { isSentence?: boolean }): boolean {
+  return isSentenceTest(testType) || vocab.isSentence === true;
+}
+
+/** Wörter zuerst, danach die Sätze (jeweils in der übergebenen Reihenfolge) */
+export function wordsBeforeSentences<T extends { isSentence?: boolean }>(items: T[]): T[] {
+  return [...items.filter((v) => !v.isSentence), ...items.filter((v) => v.isSentence)];
+}
+
 /** Frage und Lösung für Eintrag Nummer `index` (0-basiert). */
 export function buildQuestionAnswer(
   testType: TestType,
@@ -87,13 +97,38 @@ export function generateVocabularyTestPDF(options: TestOptions): void {
 
   // Test content
   // Only shuffle if preserveOrder is not set to true
-  const testVocabulary = options.preserveOrder ? [...options.vocabularyList] : shuffleArray([...options.vocabularyList]);
+  const testVocabulary = options.preserveOrder
+    ? [...options.vocabularyList]
+    : wordsBeforeSentences([
+        ...shuffleArray(options.vocabularyList.filter((v) => !v.isSentence)),
+        ...shuffleArray(options.vocabularyList.filter((v) => v.isSentence)),
+      ]);
+  // Test mit Wörtern UND Sätzen: Zwischenüberschriften bei jedem Wechsel
+  const mixedContent =
+    !isSentenceTest(options.testType) &&
+    testVocabulary.some((v) => v.isSentence) &&
+    testVocabulary.some((v) => !v.isSentence);
 
   testVocabulary.forEach((vocab, index) => {
     // Check if we need a new page
     if (yPosition > pageHeight - 30) {
       doc.addPage();
       yPosition = margin;
+    }
+
+    const sentenceMode = isSentenceItem(options.testType, vocab);
+
+    // Zwischenüberschrift (Wörter / Sätze), wenn beides im Test vorkommt
+    if (mixedContent && (index === 0 || sentenceMode !== isSentenceItem(options.testType, testVocabulary[index - 1]))) {
+      if (yPosition > pageHeight - 45) {
+        doc.addPage();
+        yPosition = margin;
+      }
+      doc.setFontSize(12);
+      doc.setFont('Helvetica', 'bold');
+      doc.setTextColor(46, 49, 146);
+      doc.text(sentenceMode ? 'Teil B: Sätze' : 'Teil A: Wörter', margin, yPosition);
+      yPosition += 7;
     }
 
     // Question number
@@ -103,7 +138,6 @@ export function generateVocabularyTestPDF(options: TestOptions): void {
 
     const qa = buildQuestionAnswer(options.testType, vocab, index);
     const answerText = qa.answer;
-    const sentenceMode = isSentenceTest(options.testType);
     // Sätze können länger sein als eine Zeile: umbrechen und volle Breite für die Antwort
     const questionLines: string[] = doc.splitTextToSize(`${index + 1}. ${qa.question}`, contentWidth);
 
@@ -239,7 +273,7 @@ function shuffleArray<T>(array: T[]): T[] {
 /**
  * Generate default instructions based on test type
  */
-export function getDefaultInstructions(testType: TestType): string {
+export function getDefaultInstructions(testType: TestType, withSentences = false): string {
   const instructions: Record<string, string> = {
     'sentences-de-en': 'Übersetze die deutschen Sätze ins Englische. Schreibe jeden Satz vollständig auf die Linie.',
     'sentences-en-de': 'Übersetze die englischen Sätze ins Deutsche. Schreibe jeden Satz vollständig auf die Linie.',
@@ -247,5 +281,8 @@ export function getDefaultInstructions(testType: TestType): string {
     'german-to-english': 'Übersetze die deutschen Wörter ins Englische. Schreibe deine Antwort auf die Linie.',
     'mixed': 'Übersetze die Wörter. Manche sind auf Englisch, manche auf Deutsch. Schreibe deine Antwort auf die Linie.',
   };
-  return instructions[testType] || instructions['english-to-german'];
+  const base = instructions[testType] || instructions['english-to-german'];
+  return withSentences && !isSentenceTest(testType)
+    ? `${base} Bei den Sätzen schreibst du den ganzen Satz auf die Linie.`
+    : base;
 }

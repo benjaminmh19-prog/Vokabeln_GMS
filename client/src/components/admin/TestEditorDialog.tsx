@@ -40,6 +40,8 @@ export default function TestEditorDialog({
     }
   }, [isOpen, vocabularyList, testTitle]);
 
+  const sentenceCount = editableVocabulary.filter((v) => v.isSentence).length;
+
   // Delete vocabulary item
   const handleDeleteVocab = (index: number) => {
     setEditableVocabulary((prev) => prev.filter((_, i) => i !== index));
@@ -87,7 +89,7 @@ export default function TestEditorDialog({
       // Generate PDF with edited vocabulary (preserve order, don't shuffle)
       generateVocabularyTestPDF({
         title: customTitle || testTitle,
-        instructions: getDefaultInstructions(testType),
+        instructions: getDefaultInstructions(testType, editableVocabulary.some((v) => v.isSentence)),
         testType,
         includeAnswerKey,
         vocabularyList: editableVocabulary,
@@ -111,7 +113,7 @@ export default function TestEditorDialog({
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-[#2E3192]">
-            {isSentenceTest(testType) ? '📝 Satztest bearbeiten' : '📝 Vokabeltest bearbeiten'}
+            {isSentenceTest(testType) ? '📝 Satztest bearbeiten' : sentenceCount > 0 ? '📝 Test (Wörter und Sätze) bearbeiten' : '📝 Vokabeltest bearbeiten'}
           </DialogTitle>
         </DialogHeader>
 
@@ -144,7 +146,11 @@ export default function TestEditorDialog({
           <div className="bg-[#FFF4E6] border-2 border-[#FF9F1C] rounded-lg p-4">
             <p className="font-bold text-[#2E3192]">Test: {customTitle || testTitle}</p>
             <p className="text-sm text-gray-700">
-              {isSentenceTest(testType) ? 'Sätze' : 'Vokabeln'}: {editableVocabulary.length} | Richtung: {testType === 'english-to-german' || testType === 'sentences-en-de' ? 'EN→DE' : testType === 'german-to-english' || testType === 'sentences-de-en' ? 'DE→EN' : 'Gemischt'}
+              {isSentenceTest(testType)
+                ? `Sätze: ${editableVocabulary.length}`
+                : sentenceCount > 0
+                  ? `Wörter: ${editableVocabulary.length - sentenceCount}, Sätze: ${sentenceCount}`
+                  : `Vokabeln: ${editableVocabulary.length}`}{' '}| Richtung: {testType === 'english-to-german' || testType === 'sentences-en-de' ? 'EN→DE' : testType === 'german-to-english' || testType === 'sentences-de-en' ? 'DE→EN' : 'Gemischt'}
             </p>
             {headerText && <p className="text-xs text-gray-600 mt-2">Kopfzeile: {headerText}</p>}
           </div>
@@ -164,13 +170,13 @@ export default function TestEditorDialog({
                   <Input
                     value={vocab.english}
                     onChange={(e) => handleEditField(index, 'english', e.target.value)}
-                    placeholder={isSentenceTest(testType) ? 'English sentence' : 'English'}
+                    placeholder={isSentenceTest(testType) || vocab.isSentence ? 'English sentence' : 'English'}
                     className="text-sm"
                   />
                   <Input
                     value={vocab.deutsch}
                     onChange={(e) => handleEditField(index, 'deutsch', e.target.value)}
-                    placeholder={isSentenceTest(testType) ? 'Deutscher Satz' : 'Deutsch'}
+                    placeholder={isSentenceTest(testType) || vocab.isSentence ? 'Deutscher Satz' : 'Deutsch'}
                     className="text-sm"
                   />
                 </div>

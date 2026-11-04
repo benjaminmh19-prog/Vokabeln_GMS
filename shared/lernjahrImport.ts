@@ -66,7 +66,8 @@ export function parseLernjahr1(rows: CellValue[][]): ParsedList {
     if (!b && a) {
       // Zeile mit Unit-Titel; Hinweiszeilen am Ende der Datei werden ignoriert
       if (/^hinweis/i.test(a)) continue;
-      unit = a;
+      // nur "Unit 1" statt "Unit 1: My school and I"
+      unit = a.replace(/^(Unit\s*\d+)\s*:.*$/i, '$1');
       continue;
     }
     const page = pageOf(r[0]);

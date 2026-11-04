@@ -33,6 +33,7 @@ export default function TestGeneratorPanel({ vocabularyList, collections = [] }:
   const [selectedUnits, setSelectedUnits] = useState<Set<string>>(new Set());
   const [selectedPages, setSelectedPages] = useState<string[]>([]);
   const [numberOfWords, setNumberOfWords] = useState<string>('10');
+  const [numberOfExtraSentences, setNumberOfExtraSentences] = useState<string>('0');
   const [numberOfTests, setNumberOfTests] = useState<string>('1');
   const [isGenerating, setIsGenerating] = useState(false);
   const [showTestEditor, setShowTestEditor] = useState(false);
@@ -197,6 +198,17 @@ export default function TestGeneratorPanel({ vocabularyList, collections = [] }:
       return;
     }
 
+    // Zusätzliche Sätze in einem Wort-Test (0 = keine)
+    const extraSentences = sentenceMode ? 0 : parseInt(numberOfExtraSentences, 10) || 0;
+    if (extraSentences < 0) {
+      toast.error('Die Anzahl der Sätze darf nicht negativ sein');
+      return;
+    }
+    if (extraSentences > sentenceVocabCount) {
+      toast.error(`Nur ${sentenceVocabCount} Sätze in dieser Auswahl verfügbar, aber ${extraSentences} angefordert`);
+      return;
+    }
+
     setIsGenerating(true);
 
     try {
@@ -208,6 +220,21 @@ export default function TestGeneratorPanel({ vocabularyList, collections = [] }:
             numWords,
           ).map((s) => ({ id: s.id, english: s.sentence_en, deutsch: s.sentence_de }))
         : shuffleArray(filteredVocabulary).slice(0, numWords);
+
+      // Zusätzliche Sätze anhängen (möglichst zu Vokabeln, die nicht schon als Wort im Test stehen)
+      if (extraSentences > 0) {
+        const usedIds = new Set(selected.map((v) => v.id).filter(Boolean) as string[]);
+        const allIds = new Set(availableSentences.map((s) => s.vocabulary_id));
+        const freeIds = new Set(Array.from(allIds).filter((id) => !usedIds.has(id)));
+        const pool = freeIds.size >= extraSentences ? freeIds : allIds;
+        const extra = pickSentences(availableSentences, pool, extraSentences).map((s) => ({
+          id: s.id,
+          english: s.sentence_en,
+          deutsch: s.sentence_de,
+          isSentence: true,
+        }));
+        selected.push(...extra);
+      }
 
       // Open editor for test
       setDraftVocabulary(selected);
@@ -288,6 +315,19 @@ export default function TestGeneratorPanel({ vocabularyList, collections = [] }:
                 className="mt-2"
               />
             </div>
+
+            {!isSentenceTest(testType) && (
+              <div>
+                <Label className="font-bold text-[#2E3192]">Zusätzlich Sätze (0 = keine)</Label>
+                <Input
+                  type="number"
+                  value={numberOfExtraSentences}
+                  onChange={(e) => setNumberOfExtraSentences(e.target.value)}
+                  min="0"
+                  className="mt-2"
+                />
+              </div>
+            )}
 
             <div className="flex items-end">
               <label className="flex items-center gap-2 cursor-pointer">

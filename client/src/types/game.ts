@@ -11,6 +11,8 @@ export interface Vocabulary {
   deutsch: string;
   unit?: string;
   page?: string;
+  /** Nur im Testgenerator: Eintrag ist ein Satz (in einem Test mit Wörtern und Sätzen). */
+  isSentence?: boolean;
 }
 
 export interface WordWithDirection extends Vocabulary {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildQuestionAnswer, getDefaultInstructions, isSentenceTest } from '../client/src/lib/pdfTestGenerator';
+import { buildQuestionAnswer, getDefaultInstructions, isSentenceItem, isSentenceTest, wordsBeforeSentences } from '../client/src/lib/pdfTestGenerator';
 
 const word = { english: 'school', deutsch: 'die Schule' };
 const sentence = { english: 'I go to school every day.', deutsch: 'Ich gehe jeden Tag zur Schule.' };
@@ -26,5 +26,15 @@ describe('Testtypen', () => {
     expect(isSentenceTest('mixed')).toBe(false);
     expect(getDefaultInstructions('sentences-de-en')).toMatch(/Sätze/);
     expect(getDefaultInstructions('english-to-german')).toMatch(/Wörter/);
+  });
+
+  it('Test mit Wörtern und Sätzen: Einträge als Satz markieren, Wörter zuerst', () => {
+    expect(isSentenceItem('english-to-german', { isSentence: true })).toBe(true);
+    expect(isSentenceItem('english-to-german', {})).toBe(false);
+    expect(isSentenceItem('sentences-de-en', {})).toBe(true);
+    const items = [{ id: 's1', isSentence: true }, { id: 'w1' }, { id: 's2', isSentence: true }, { id: 'w2' }];
+    expect(wordsBeforeSentences(items).map((i) => i.id)).toEqual(['w1', 'w2', 's1', 's2']);
+    expect(getDefaultInstructions('english-to-german', true)).toMatch(/Wörter[\s\S]*Sätzen/);
+    expect(getDefaultInstructions('english-to-german', false)).not.toMatch(/Sätzen/);
   });
 });

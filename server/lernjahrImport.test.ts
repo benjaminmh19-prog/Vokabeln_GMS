@@ -26,8 +26,8 @@ describe('Lernjahr 1 lesen', () => {
     expect(r.errors).toEqual([]);
     expect(r.vocab.map((v) => [v.unit, v.page, v.english])).toEqual([
       ['Welcome / Zoom in', '6', 'welcome (to)'],
-      ['Unit 1: My school and I', '12', 'school'],
-      ['Unit 1: My school and I', '13', 'false'],
+      ['Unit 1', '12', 'school'],
+      ['Unit 1', '13', 'false'],
     ]);
   });
   it('macht aus Excel-Wahrheitswerten wieder Text und liest drei Sätze', () => {
