@@ -19,6 +19,10 @@
  *   --collection1 <id>     Sammlung für Lernjahr 1, falls es nicht genau eine mit learning_year = 1 gibt
  *   --collection2 <id>     Sammlung für Lernjahr 2, entsprechend
  *   --backup-dir <ordner>  Ort der Sicherungsdateien (Standard: ./backup)
+ *   --neu <datei>          weitere Liste (z. B. Lernjahr 3); legt die Sammlung an, falls es sie noch nicht gibt
+ *   --jahr <n>             Lernjahr der --neu-Liste (z. B. 3)
+ *   --name <text>          Name der neuen Sammlung (z. B. "Englisch Klasse 7"), nur beim Anlegen nötig
+ *   --format <1|2>         Spaltenaufbau der --neu-Liste wie Lernjahr 1 oder 2 (Standard: 2)
  *   --apply                wirklich in die Datenbank schreiben
  *
  * Benötigt DATABASE_URL (wie der Server).
@@ -37,10 +41,14 @@ interface Args {
   collection2?: string;
   backupDir: string;
   apply: boolean;
+  neu?: string;
+  jahr?: number;
+  name?: string;
+  format: 1 | 2;
 }
 
 function parseArgs(argv: string[]): Args {
-  const a: Args = { backupDir: 'backup', apply: false };
+  const a: Args = { backupDir: 'backup', apply: false, format: 2 };
   for (let i = 0; i < argv.length; i++) {
     const k = argv[i];
     const next = () => {
@@ -53,6 +61,10 @@ function parseArgs(argv: string[]): Args {
     else if (k === '--collection1') a.collection1 = next();
     else if (k === '--collection2') a.collection2 = next();
     else if (k === '--backup-dir') a.backupDir = next();
+    else if (k === '--neu') a.neu = next();
+    else if (k === '--jahr') a.jahr = parseInt(next(), 10);
+    else if (k === '--name') a.name = next();
+    else if (k === '--format') a.format = next() === '1' ? 1 : 2;
     else if (k === '--apply') a.apply = true;
     else throw new Error(`Unbekannte Option: ${k}`);
   }
@@ -60,14 +72,16 @@ function parseArgs(argv: string[]): Args {
 }
 
 interface Job {
-  year: 1 | 2;
+  year: number;
   file: string;
   parsed: ParsedList;
   collectionId: string;
   collectionName: string;
+  /** true: Sammlung gibt es noch nicht und wird beim Import angelegt */
+  create?: boolean;
 }
 
-async function findCollection(client: pg.Client, year: 1 | 2, explicitId?: string): Promise<{ id: string; name: string }> {
+async function findCollection(client: pg.Client, year: number, explicitId?: string): Promise<{ id: string; name: string }> {
   const { rows } = await client.query<{ id: string; name: string; learning_year: number }>(
     'SELECT id, name, learning_year FROM collections ORDER BY learning_year, name',
   );
@@ -92,8 +106,12 @@ function summarize(list: ImportVocab[]): string {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  if (!args.lj1 && !args.lj2) {
-    console.error('Aufruf: npx tsx scripts/import-lernjahr.ts --lj1 <datei.xlsx> [--lj2 <datei.xlsx>] [--apply]');
+  if (!args.lj1 && !args.lj2 && !args.neu) {
+    console.error('Aufruf: npx tsx scripts/import-lernjahr.ts --lj1 <datei.xlsx> [--lj2 <datei.xlsx>] [--neu <datei.xlsx> --jahr 3 --name "Englisch Klasse 7"] [--apply]');
+    process.exit(1);
+  }
+  if (args.neu && (!args.jahr || args.jahr < 1)) {
+    console.error('Zu --neu gehört --jahr <Zahl>, z. B. --jahr 3.');
     process.exit(1);
   }
   if (!process.env.DATABASE_URL) {
@@ -102,11 +120,16 @@ async function main() {
   }
 
   // 1. Dateien lesen und prüfen (noch ohne Datenbank)
-  const parsedFiles: { year: 1 | 2; file: string; parsed: ParsedList }[] = [];
-  for (const [year, file] of [[1, args.lj1], [2, args.lj2]] as const) {
+  const parsedFiles: { year: number; file: string; parsed: ParsedList }[] = [];
+  const inputs: [number, string | undefined, 1 | 2][] = [
+    [1, args.lj1, 1],
+    [2, args.lj2, 2],
+    [args.jahr ?? 0, args.neu, args.format],
+  ];
+  for (const [year, file, format] of inputs) {
     if (!file) continue;
     const rows = readXlsxRows(fs.readFileSync(file));
-    const parsed = year === 1 ? parseLernjahr1(rows) : parseLernjahr2(rows);
+    const parsed = format === 1 ? parseLernjahr1(rows) : parseLernjahr2(rows);
     console.log(`Lernjahr ${year}: ${parsed.vocab.length} Vokabeln aus ${file} gelesen.`);
     if (parsed.errors.length > 0) {
       console.error(`\nFehler in ${file}:`);
@@ -127,11 +150,32 @@ async function main() {
     // 2. Sammlungen zuordnen
     const jobs: Job[] = [];
     for (const f of parsedFiles) {
+      const isNeu = f.file === args.neu;
+      if (isNeu && f.year !== 1 && f.year !== 2) {
+        // weitere Liste: vorhandene Sammlung dieses Lernjahrs ersetzen, sonst neu anlegen
+        const { rows } = await client.query<{ id: string; name: string }>(
+          'SELECT id, name FROM collections WHERE learning_year = $1 ORDER BY name',
+          [f.year],
+        );
+        if (rows.length > 1) {
+          throw new Error(`Mehrere Sammlungen mit Lernjahr ${f.year} gefunden (${rows.map((r) => r.id).join(', ')}). Bitte eindeutig machen.`);
+        }
+        if (rows.length === 1) {
+          jobs.push({ ...f, collectionId: rows[0].id, collectionName: rows[0].name });
+        } else {
+          if (!args.name) throw new Error(`Für Lernjahr ${f.year} gibt es noch keine Sammlung. Bitte --name "<Name der Sammlung>" angeben.`);
+          const free = `col-${String(f.year).padStart(3, '0')}`;
+          const taken = await client.query('SELECT 1 FROM collections WHERE id = $1', [free]);
+          jobs.push({ ...f, collectionId: taken.rowCount ? randomUUID() : free, collectionName: args.name, create: true });
+        }
+        continue;
+      }
       const c = await findCollection(client, f.year, f.year === 1 ? args.collection1 : args.collection2);
       jobs.push({ ...f, collectionId: c.id, collectionName: c.name });
     }
-    if (jobs.length === 2 && jobs[0].collectionId === jobs[1].collectionId) {
-      throw new Error('Lernjahr 1 und 2 würden dieselbe Sammlung ersetzen. Bitte --collection1 und --collection2 angeben.');
+    const ids = jobs.map((j) => j.collectionId);
+    if (new Set(ids).size !== ids.length) {
+      throw new Error('Zwei Listen würden dieselbe Sammlung ersetzen. Bitte --collection1 und --collection2 angeben.');
     }
 
     // Übersicht
@@ -141,9 +185,9 @@ async function main() {
                 (SELECT COUNT(*) FROM vocab_sentences WHERE vocabulary_id IN (SELECT id FROM admin_vocabulary WHERE collection_id = $1)) AS s`,
         [j.collectionId],
       );
-      console.log(`\nLernjahr ${j.year} -> Sammlung "${j.collectionName}" (${j.collectionId})`);
+      console.log(`\nLernjahr ${j.year} -> Sammlung "${j.collectionName}" (${j.collectionId})${j.create ? '  [wird NEU angelegt]' : ''}`);
       console.log(`  vorher: ${old.rows[0].v} Vokabeln, ${old.rows[0].s} Sätze  (werden gelöscht)`);
-      console.log(`  nachher: ${j.parsed.vocab.length} Vokabeln, ${j.parsed.vocab.length * 3} Sätze`);
+      console.log(`  nachher: ${j.parsed.vocab.length} Vokabeln, ${j.parsed.vocab.length * j.parsed.sentencesPerVocab} Sätze (${j.parsed.sentencesPerVocab} pro Vokabel)`);
       console.log(summarize(j.parsed.vocab));
     }
 
@@ -170,6 +214,9 @@ async function main() {
     await client.query('BEGIN');
     try {
       for (const j of jobs) {
+        if (j.create) {
+          await client.query('INSERT INTO collections (id, name, learning_year) VALUES ($1, $2, $3)', [j.collectionId, j.collectionName, j.year]);
+        }
         await client.query(
           'DELETE FROM vocab_sentences WHERE vocabulary_id IN (SELECT id FROM admin_vocabulary WHERE collection_id = $1)',
           [j.collectionId],

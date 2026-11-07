@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { readXlsxRows } from '../shared/xlsxReader';
 import { cellText, parseLernjahr1, parseLernjahr2 } from '../shared/lernjahrImport';
+import { parseUpload } from './adminImport';
 
 const load = (name: string) => readXlsxRows(fs.readFileSync(path.join(__dirname, 'fixtures', name)));
 
@@ -55,5 +56,36 @@ describe('cellText', () => {
     expect(cellText('  a   b ')).toBe('a b');
     expect(cellText(true)).toBe('true');
     expect(cellText(null)).toBe('');
+  });
+});
+
+describe('Listen mit mehr als drei Sätzen (Admin-Import)', () => {
+  const load = (n: string) => readXlsxRows(fs.readFileSync(path.join(__dirname, 'fixtures', n)));
+
+  it('erkennt 4 Sätze pro Vokabel', () => {
+    const r = parseLernjahr2(load('lernjahr3-4saetze.xlsx'));
+    expect(r.errors).toEqual([]);
+    expect(r.sentencesPerVocab).toBe(4);
+    expect(r.vocab).toHaveLength(3);
+    expect(r.vocab[0].sentences).toHaveLength(4);
+    expect(r.vocab[2]).toMatchObject({ unit: 'Zoom in', page: '12', english: 'tree' });
+  });
+
+  it('meldet einen unvollständigen vierten Satz', () => {
+    const r = parseLernjahr2(load('lernjahr3-unvollstaendig.xlsx'));
+    expect(r.errors.some((e) => e.includes('Sätze sind vollständig') || e.includes('vollständig'))).toBe(true);
+  });
+
+  it('verlangt mindestens drei Sätze', () => {
+    const r = parseLernjahr2(load('lernjahr3-zu-wenig.xlsx'));
+    expect(r.errors.join(' ')).toContain('mindestens 3');
+  });
+
+  it('parseUpload liest base64 und meldet Fehler lesbar', () => {
+    const ok = parseUpload(fs.readFileSync(path.join(__dirname, 'fixtures', 'lernjahr3-4saetze.xlsx')).toString('base64'), 2);
+    expect(ok.errors).toEqual([]);
+    expect(ok.parsed?.sentencesPerVocab).toBe(4);
+    const bad = parseUpload(Buffer.from('keine excel datei').toString('base64'), 2);
+    expect(bad.errors[0]).toContain('.xlsx');
   });
 });

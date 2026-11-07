@@ -83,6 +83,8 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     if (isValid) {
       setIsAdminLoggedIn(true);
       sessionStorage.setItem('adminLoggedIn', 'true');
+      // Für Server-Aufrufe mit Passwortprüfung (z. B. Excel-Import); nur für diese Sitzung
+      try { sessionStorage.setItem('adminPw', password); } catch { /* ignorieren */ }
     }
     return isValid;
   }, []);
@@ -90,6 +92,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const adminLogout = useCallback(() => {
     setIsAdminLoggedIn(false);
     sessionStorage.removeItem('adminLoggedIn');
+    try { sessionStorage.removeItem('adminPw'); } catch { /* ignorieren */ }
   }, []);
 
   const getAllVocabulary = useCallback(

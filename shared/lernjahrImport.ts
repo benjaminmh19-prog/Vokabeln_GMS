@@ -1,7 +1,7 @@
 /**
  * Liest die Excel-Listen "Komplett Lernjahr 1/2" (Vokabeln mit je drei Beispielsätzen).
  *
- * Lernjahr 1: A Seite | B Englisch | C Deutsch | D/E Satz | F/G engl I/deu I | H/I engl II/deu II
+ * Lernjahr 1: A Seite | B Englisch | C Deutsch | danach Satzpaare Englisch/Deutsch (3, auch 4 bis 6 möglich; die Zahl wird erkannt)
  *             Units stehen als eigene Zeilen davor ("Unit 1: My school and I").
  * Lernjahr 2: A Unit | B Seite | C Englisch | D Deutsch | E/F Satz | G/H engl I/deu I | I/J engl II/deu II
  */
@@ -25,6 +25,29 @@ export interface ImportVocab {
 export interface ParsedList {
   vocab: ImportVocab[];
   errors: string[];
+  /** Sätze pro Vokabel (aus den Spalten erkannt; 3 bei den bisherigen Listen) */
+  sentencesPerVocab: number;
+}
+
+export const MIN_SENTENCES = 3;
+export const MAX_SENTENCES = 6;
+
+/**
+ * Erkennt, wie viele Satzpaare (Englisch + Deutsch) die Liste hat:
+ * ab Spalte `first` zählen die Spalten bis zur letzten befüllten Zelle in einer Datenzeile.
+ */
+function detectPairs(rows: CellValue[][], first: number): number {
+  let last = -1;
+  for (let i = 1; i < rows.length; i++) {
+    const r = rows[i] ?? [];
+    for (let c = r.length - 1; c > last; c--) {
+      if (cellText(r[c]) !== '') {
+        last = c;
+        break;
+      }
+    }
+  }
+  return last < first ? 0 : Math.ceil((last - first + 1) / 2);
 }
 
 /** Excel macht aus "true" und "false" Wahrheitswerte; hier wieder Text. */
@@ -41,22 +64,34 @@ function pageOf(v: CellValue | undefined): string | null {
   return /^\d+$/.test(t) ? t : null;
 }
 
-function readSentences(row: CellValue[], first: number): ImportSentence[] {
+function readSentences(row: CellValue[], first: number, pairs: number): ImportSentence[] {
   const out: ImportSentence[] = [];
-  for (let i = 0; i < 3; i++) out.push({ en: cellText(row[first + 2 * i]), de: cellText(row[first + 2 * i + 1]) });
+  for (let i = 0; i < pairs; i++) out.push({ en: cellText(row[first + 2 * i]), de: cellText(row[first + 2 * i + 1]) });
   return out;
 }
 
 function check(item: ImportVocab, errors: string[]): void {
   const where = `Zeile ${item.excelRow} (${item.english})`;
+  const n = item.sentences.length;
   if (!item.english || !item.deutsch) errors.push(`${where}: Englisch oder Deutsch fehlt.`);
-  if (item.sentences.some((s) => !s.en || !s.de)) errors.push(`${where}: nicht alle drei Sätze sind vollständig.`);
-  if (new Set(item.sentences.map((s) => s.en.toLowerCase())).size < 3) errors.push(`${where}: Sätze sind nicht verschieden.`);
+  if (item.sentences.some((s) => !s.en || !s.de)) errors.push(`${where}: nicht alle ${n} Sätze sind vollständig.`);
+  if (new Set(item.sentences.map((s) => s.en.toLowerCase())).size < n) errors.push(`${where}: Sätze sind nicht verschieden.`);
+}
+
+function pairsOrError(rows: CellValue[][], first: number, errors: string[]): number {
+  const pairs = detectPairs(rows, first);
+  if (pairs < MIN_SENTENCES) {
+    errors.push(`In der Liste sind nur ${pairs} Satzpaare erkennbar, nötig sind mindestens ${MIN_SENTENCES}.`);
+  } else if (pairs > MAX_SENTENCES) {
+    errors.push(`In der Liste sind ${pairs} Satzpaare erkennbar (höchstens ${MAX_SENTENCES}). Steht rechts neben den Sätzen noch etwas, z. B. eine Notiz?`);
+  }
+  return pairs;
 }
 
 export function parseLernjahr1(rows: CellValue[][]): ParsedList {
   const vocab: ImportVocab[] = [];
   const errors: string[] = [];
+  const pairs = pairsOrError(rows, 3, errors);
   let unit = '';
   for (let i = 1; i < rows.length; i++) {
     const r = rows[i] ?? [];
@@ -79,16 +114,17 @@ export function parseLernjahr1(rows: CellValue[][]): ParsedList {
       errors.push(`Zeile ${i + 1} (${b}): Seitenzahl fehlt oder ist keine ganze Zahl.`);
       continue;
     }
-    const item: ImportVocab = { unit, page, english: b, deutsch: cellText(r[2]), sentences: readSentences(r, 3), excelRow: i + 1 };
+    const item: ImportVocab = { unit, page, english: b, deutsch: cellText(r[2]), sentences: readSentences(r, 3, pairs), excelRow: i + 1 };
     check(item, errors);
     vocab.push(item);
   }
-  return { vocab, errors };
+  return { vocab, errors, sentencesPerVocab: pairs };
 }
 
 export function parseLernjahr2(rows: CellValue[][]): ParsedList {
   const vocab: ImportVocab[] = [];
   const errors: string[] = [];
+  const pairs = pairsOrError(rows, 4, errors);
   for (let i = 1; i < rows.length; i++) {
     const r = rows[i] ?? [];
     if (r.every((c) => c === null || c === undefined || cellText(c) === '')) continue;
@@ -102,9 +138,9 @@ export function parseLernjahr2(rows: CellValue[][]): ParsedList {
       errors.push(`Zeile ${i + 1} (${cellText(r[2])}): Seitenzahl fehlt oder ist keine ganze Zahl.`);
       continue;
     }
-    const item: ImportVocab = { unit, page, english: cellText(r[2]), deutsch: cellText(r[3]), sentences: readSentences(r, 4), excelRow: i + 1 };
+    const item: ImportVocab = { unit, page, english: cellText(r[2]), deutsch: cellText(r[3]), sentences: readSentences(r, 4, pairs), excelRow: i + 1 };
     check(item, errors);
     vocab.push(item);
   }
-  return { vocab, errors };
+  return { vocab, errors, sentencesPerVocab: pairs };
 }

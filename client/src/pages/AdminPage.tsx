@@ -33,6 +33,7 @@ import CollectionManagementTable from '@/components/admin/CollectionManagementTa
 import ExportDialog from '@/components/admin/ExportDialog';
 import ImportProgressDialog from '@/components/admin/ImportProgressDialog';
 import { VocabularyManagementTable } from '@/components/admin/VocabularyManagementTable';
+import ExcelListImportCard from '@/components/admin/ExcelListImportCard';
 import TestGeneratorPanel from '@/components/admin/TestGeneratorPanel';
 import TestHistoryPanel from '@/components/admin/TestHistoryPanel';
 import TeacherDashboard from '@/components/admin/TeacherDashboard';
@@ -411,6 +412,9 @@ export default function AdminPage() {
             </div>
           </Card>
         </div>
+
+        {/* Excel-Liste mit Sätzen */}
+        <ExcelListImportCard onImported={async () => { await loadCollections(); await loadVocabulary(); }} />
 
         {/* Management Buttons */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">

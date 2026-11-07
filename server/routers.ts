@@ -6,6 +6,7 @@ import { createPlayer, getPlayerByUsername, deletePlayer, getAllPlayers, getAllV
 import { z } from "zod";
 import { nanoid } from "nanoid";
 import bcryptjs from "bcryptjs";
+import { importList } from "./adminImport";
 
 export const appRouter = router({
   system: systemRouter,
@@ -151,6 +152,29 @@ export const appRouter = router({
     list: publicProcedure.query(async () => {
       return await getAllSentences();
     }),
+  }),
+
+  admin_import: router({
+    // Excel-Liste mit Sätzen prüfen (apply = false) oder importieren (apply = true)
+    list: publicProcedure
+      .input(z.object({
+        adminPassword: z.string(),
+        fileBase64: z.string().max(30_000_000),
+        format: z.union([z.literal(1), z.literal(2)]).default(2),
+        year: z.number().int().min(1).max(13),
+        name: z.string().max(255).optional(),
+        apply: z.boolean(),
+      }))
+      .mutation(async ({ input }) => {
+        if (input.adminPassword !== (process.env.ADMIN_PASSWORD || 'admin123')) {
+          throw new Error('Nicht berechtigt. Bitte im Admin-Bereich neu anmelden.');
+        }
+        try {
+          return await importList(input);
+        } catch (error) {
+          throw new Error(`Fehler beim Import (es wurde nichts verändert): ${error instanceof Error ? error.message : error}`);
+        }
+      }),
   }),
 
   admin_collections: router({
